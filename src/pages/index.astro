@@ -1,0 +1,156 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { fetchPublishedSubmissions } from '../lib/firestore.js';
+import { CATEGORY_LABELS, REGION_LABELS } from '../lib/labels.js';
+
+const submissions = await fetchPublishedSubmissions();
+
+// Build available categories from actual data
+const categories = [...new Set(submissions.map(s => s.category).filter(Boolean))];
+
+const total = submissions.length;
+const lastUpdated = new Date().toISOString().split('T')[0];
+
+const title = total > 0
+  ? `香港・台灣獨立 App 目錄 (${total} 個產品) — TechRitual Startups`
+  : `香港・台灣獨立 App 目錄 — TechRitual Startups`;
+
+const description = total > 0
+  ? `TechRitual 編輯團隊精選 ${total} 個香港、台灣同國際獨立開發者產品，包括 AI 工具、SaaS、手機 App 等。每月新增。`
+  : `TechRitual 編輯團隊精選獨立開發者產品 — AI 工具、SaaS、手機 App 等。`;
+
+// Schema.org ItemList for rich results
+const schema = {
+  '@context': 'https://schema.org',
+  '@type': 'ItemList',
+  name: 'TechRitual Startups Directory',
+  description,
+  numberOfItems: total,
+  itemListElement: submissions.map((s, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    item: {
+      '@type': 'SoftwareApplication',
+      name: s.productName,
+      description: s.tagline,
+      url: s.wordpressPostUrl,
+      applicationCategory: CATEGORY_LABELS[s.category] || s.category
+    }
+  }))
+};
+
+function pickImage(s) {
+  return s.featuredImageGcsUrl || s.appIconUrl || s.ogImage || '';
+}
+
+function categoryLabel(c) {
+  return CATEGORY_LABELS[c] || c;
+}
+---
+
+<Layout title={title} description={description}>
+  <section class="hero">
+    <h1>香港・台灣獨立 App 目錄</h1>
+    <p class="sub">TechRitual 編輯團隊精選嘅獨立開發者產品 — 每月新增、永久收錄</p>
+    {total > 0 && (
+      <div class="stats">
+        <span><strong>{total}</strong> 個產品</span>
+        <span>•</span>
+        <span><strong>{categories.length}</strong> 個分類</span>
+        <span>•</span>
+        <span>每 7 日 refresh</span>
+      </div>
+    )}
+  </section>
+
+  <main class="wrap">
+    <section class="intro">
+      <h2>關於 TechRitual Startups</h2>
+      <p>
+        TechRitual 編輯團隊每星期審閱獨立開發者投稿，挑選有趣、有實用價值嘅產品撰寫深度介紹文章。每篇文章由真人編輯撰寫（非 AI 隨機生成），保留開發者嘅原創術語、創辦人故事同實際 traction 數據。
+      </p>
+      <p>
+        呢個目錄列出所有已發佈嘅產品，按分類同地區瀏覽。撳卡片去 TechRitual.com 睇詳細介紹。如果你係獨立開發者想推廣產品，<a href="https://hkapp.techritual.com">免費投稿</a>，5 分鐘填表（或者用 AI 協助 1 分鐘）就得。
+      </p>
+    </section>
+
+    {total === 0 ? (
+      <div class="empty">
+        <h3>產品介紹陸續登場</h3>
+        <p>TechRitual 編輯團隊正喺度準備首批獨立產品深度介紹文章。</p>
+        <p style="margin-top:16px"><a href="https://hkapp.techritual.com" class="cta-btn" style="font-size:14px;padding:10px 20px;background:#ea4157;color:#fff">免費投稿你嘅產品 →</a></p>
+      </div>
+    ) : (
+      <>
+        <div class="filters" id="filters">
+          <button class="filter active" data-cat="all" type="button">全部 ({total})</button>
+          {categories.map(c => {
+            const count = submissions.filter(s => s.category === c).length;
+            return <button class="filter" data-cat={c} type="button">{categoryLabel(c)} ({count})</button>;
+          })}
+        </div>
+
+        <section class="grid" id="grid">
+          {submissions.map(s => {
+            const img = pickImage(s);
+            return (
+              <article class="card" data-cat={s.category}>
+                <a href={s.wordpressPostUrl} target="_blank" rel="noopener">
+                  {img ? (
+                    <>
+                      <img class="card-img" src={img} alt={s.productName} loading="lazy" decoding="async" referrerpolicy="no-referrer-when-downgrade" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'" />
+                      <div class="card-img-placeholder" style="display:none">📦</div>
+                    </>
+                  ) : (
+                    <div class="card-img-placeholder">📦</div>
+                  )}
+                  <div class="card-body">
+                    <h2>{s.productName}</h2>
+                    <p>{s.tagline}</p>
+                    <div class="card-meta">
+                      <span class="card-cat">{categoryLabel(s.category)}</span>
+                      {s.region && REGION_LABELS[s.region] && (
+                        <span class="card-region">{REGION_LABELS[s.region]}</span>
+                      )}
+                    </div>
+                    {s.developerName && (
+                      <div class="card-dev">by {s.developerName}{s.developerType ? ` · ${s.developerType}` : ''}</div>
+                    )}
+                  </div>
+                </a>
+              </article>
+            );
+          })}
+        </section>
+      </>
+    )}
+
+    <section class="cta">
+      <h2>有 App 想推廣？</h2>
+      <p>免費投稿，TechRitual 編輯團隊幫你寫專業深度介紹文章 + 永久 SEO backlink + 觸及每月逾百萬港台科技讀者。</p>
+      <a href="https://hkapp.techritual.com" class="cta-btn">免費投稿 →</a>
+    </section>
+  </main>
+
+  <span slot="footer-meta">上次更新：{lastUpdated} · 7 日 auto-refresh</span>
+</Layout>
+
+<script is:inline>
+(() => {
+  const filters = document.querySelectorAll('#filters .filter');
+  const cards = document.querySelectorAll('#grid .card');
+  if (!filters.length || !cards.length) return;
+  filters.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filters.forEach(f => f.classList.remove('active'));
+      btn.classList.add('active');
+      const cat = btn.dataset.cat;
+      cards.forEach(card => {
+        card.style.display = (cat === 'all' || card.dataset.cat === cat) ? '' : 'none';
+      });
+    });
+  });
+})();
+</script>
+
+<script type="application/ld+json" set:html={JSON.stringify(schema)}></script>

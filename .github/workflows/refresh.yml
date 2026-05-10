@@ -1,0 +1,38 @@
+name: Refresh catalogue snapshot
+
+# Runs weekly on Mondays 00:00 UTC + manual trigger.
+# Cron string ensures predictable refresh cadence; modulo "*/7" can drift.
+on:
+  schedule:
+    - cron: '0 0 * * 1'   # every Monday 00:00 UTC (~ HK 08:00)
+  workflow_dispatch: {}
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install deps
+        run: npm ci
+
+      - name: Refresh snapshot from Firestore
+        run: npm run snapshot
+
+      - name: Commit if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/data/snapshot.json
+          if git diff --cached --quiet; then
+            echo "No changes — skip commit."
+          else
+            git commit -m "chore(snapshot): weekly refresh from Firestore [skip ci]"
+            git push
+          fi

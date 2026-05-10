@@ -1,0 +1,38 @@
+[
+  {
+    "id": "DVrpPhFqg0JwORQlYY9Q",
+    "productName": "InPark 易泊",
+    "tagline": "全港停車場格價導航App",
+    "websiteUrl": "https://inpark.com.hk",
+    "category": "mobile-app",
+    "platforms": "iOS, Android",
+    "targetUsers": "business, general",
+    "developerName": "InPark 易泊",
+    "developerType": "公司",
+    "region": "hk",
+    "featuredImageGcsUrl": "",
+    "appIconUrl": "https://drive.google.com/file/d/1HOTdCCK5JB7thXQtFe2_5NGv4ohEHXez/view?usp=sharing",
+    "ogImage": "",
+    "wordpressPostUrl": "https://www.techritual.com/2026/05/11/525363/",
+    "publishedAt": "2026-05-10T16:02:38.546Z",
+    "status": "published"
+  },
+  {
+    "id": "9swgWB5ADU1D7UVtdwuI",
+    "productName": "Movfolio",
+    "tagline": "輕鬆掃描戲飛，記低你睇過嘅電影",
+    "websiteUrl": "https://movfolio.com",
+    "category": "mobile-app",
+    "platforms": "iOS",
+    "targetUsers": "general",
+    "developerName": "Movfolio",
+    "developerType": "個人",
+    "region": "hk",
+    "featuredImageGcsUrl": "https://storage.googleapis.com/gmail-auto-techritual-images/featured/techritual/36e429395cc48f7e.webp",
+    "appIconUrl": "https://drive.google.com/file/d/1GykqovhtPvbUKy8tlsvgHraWjcBc7yKA/view?usp=sharing",
+    "ogImage": "https://res.cloudinary.com/idemo/image/upload/bwbqexjqrvijzmvxvvoc",
+    "wordpressPostUrl": "https://www.techritual.com/2026/05/10/525348/",
+    "publishedAt": "2026-05-10T15:43:14.789Z",
+    "status": "published"
+  }
+]
