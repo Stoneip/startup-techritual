@@ -1,0 +1,1418 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="meta.title">將你嘅 App 推廣俾更多香港用戶 — TechRitual</title>
+    <meta name="description" content="專為香港開發者而設 — 提交你嘅 App 或工具，TechRitual 編輯團隊會為你撰寫專業介紹文章，觸及更多香港科技讀者。">
+    <meta property="og:title" content="Promote your App with TechRitual">
+    <meta property="og:description" content="Submit your App, SaaS, or tool — our editorial team writes a professional product article on TechRitual.com, reaching readers across Hong Kong, Taiwan, and beyond.">
+    <meta property="og:image" content="https://www.techritual.com/wp-content/uploads/2025/03/techritual_logo_v.webp">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://startups.techritual.com/submit">
+    <link rel="canonical" href="https://startups.techritual.com/submit">
+    <link rel="icon" href="https://www.techritual.com/favicon.ico">
+    <!-- AdSense auto-ads (inherits from techritual.com publisher account) -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3665735472523700" crossorigin="anonymous"></script>
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;background:#f5f5f7;color:#333;line-height:1.6}
+
+        .header{background:#ea4157;padding:16px 0}
+        .header-inner{max-width:720px;margin:0 auto;padding:0 20px;display:flex;align-items:center;justify-content:space-between}
+        .header-logo img{height:32px}
+        .header-nav a{color:rgba(255,255,255,.85);text-decoration:none;font-size:14px}
+        .header-nav a:hover{color:#fff}
+
+        .hero{background:linear-gradient(135deg,#1a1a2e 0%,#16213e 100%);color:#fff;padding:48px 20px 40px;text-align:center}
+        .hero h1{font-size:28px;font-weight:800;margin-bottom:12px;line-height:1.3}
+        .hero p{font-size:16px;color:#b0b0c8;max-width:560px;margin:0 auto}
+
+        .wrap{max-width:720px;margin:0 auto;padding:0 16px}
+
+        /* Value Props */
+        .value-section{margin:-20px auto 0;position:relative;z-index:1}
+        .value-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:24px}
+        @media(max-width:600px){.value-grid{grid-template-columns:1fr}}
+        .value-card{background:#fff;border-radius:14px;padding:24px 20px;text-align:center;box-shadow:0 2px 12px rgba(0,0,0,.06)}
+        .value-icon{font-size:32px;margin-bottom:10px}
+        .value-title{font-weight:700;font-size:15px;margin-bottom:6px}
+        .value-desc{font-size:13px;color:#666}
+
+        .notice{background:#fff8e1;border:1px solid #ffe082;border-radius:10px;padding:14px 18px;font-size:13px;color:#7b6b2e;margin-bottom:24px;text-align:center}
+
+        .sample-box{background:#fff;border-radius:14px;padding:20px 24px;box-shadow:0 2px 12px rgba(0,0,0,.06);margin-bottom:32px;display:flex;align-items:center;gap:16px}
+        .sample-box .sample-label{font-size:13px;color:#888}
+        .sample-box .sample-title{font-weight:700;font-size:15px;margin-top:2px}
+        .sample-box .sample-btn{background:#ea4157;color:#fff;padding:10px 20px;border-radius:8px;text-decoration:none;font-size:13px;font-weight:600;white-space:nowrap;flex-shrink:0}
+        .sample-box .sample-btn:hover{background:#d13649}
+
+        /* Mode Tabs */
+        .mode-tabs{display:flex;gap:6px;margin-bottom:8px;background:#f0f0f0;padding:6px;border-radius:12px}
+        .mode-tab{flex:1;padding:12px 16px;border:none;background:transparent;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;color:#666;transition:all .2s;font-family:inherit}
+        .mode-tab:hover{color:#333}
+        .mode-tab.active{background:#fff;color:#ea4157;box-shadow:0 1px 3px rgba(0,0,0,.08)}
+        .mode-hint{font-size:12px;color:#888;text-align:center;margin-bottom:20px}
+
+        /* AI Mode panels */
+        .ai-instructions{background:#fef2f2;border:1px solid #fecdd3;border-radius:10px;padding:14px 18px;font-size:14px;color:#7c1d2c;margin-bottom:18px;line-height:1.7}
+        .ai-instructions strong{color:#ea4157}
+        .ai-questions-panel{background:#1a1a2e;color:#e0e0e8;border-radius:10px;padding:18px 20px;font-size:13px;line-height:1.7;max-height:380px;overflow-y:auto;white-space:pre-wrap;font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;margin-bottom:12px;-webkit-text-size-adjust:100%}
+        .ai-copy-btn{display:inline-flex;align-items:center;gap:6px;background:#fff;border:1px solid #ddd;color:#333;padding:10px 16px;border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;transition:all .2s;font-family:inherit}
+        .ai-copy-btn:hover{border-color:#ea4157;color:#ea4157}
+        .ai-copy-btn.copied{background:#27ae60;color:#fff;border-color:#27ae60}
+
+        /* Progress */
+        .progress{display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:24px}
+        .progress-step{width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;border:2px solid #ddd;color:#999;transition:all .3s}
+        .progress-step.active{border-color:#ea4157;color:#ea4157;background:#fef2f2}
+        .progress-step.done{border-color:#27ae60;color:#fff;background:#27ae60}
+        .progress-line{width:40px;height:2px;background:#ddd;transition:background .3s}
+        .progress-line.done{background:#27ae60}
+        .step-label{text-align:center;font-size:13px;color:#888;margin-bottom:20px}
+
+        /* Form */
+        .form-card{background:#fff;border-radius:16px;padding:32px;box-shadow:0 4px 24px rgba(0,0,0,.08);margin-bottom:32px}
+        .step{display:none}
+        .step.active{display:block}
+
+        label{display:block;font-weight:600;margin-bottom:6px;font-size:15px;color:#333}
+        .field{margin-bottom:20px}
+        input[type="text"],input[type="email"],input[type="url"],input[type="number"],input[type="tel"],select,textarea{width:100%;padding:12px 14px;border:1px solid #ddd;border-radius:10px;font-size:15px;font-family:inherit;transition:border-color .2s}
+        input:focus,select:focus,textarea:focus{border-color:#ea4157;outline:none;box-shadow:0 0 0 3px rgba(234,65,87,.1)}
+        textarea{min-height:120px;resize:vertical}
+        .hint{font-size:12px;color:#999;margin-top:4px}
+        .req{color:#ea4157}
+        .section-title{font-size:17px;font-weight:700;margin:28px 0 14px;padding-bottom:8px;border-bottom:2px solid #f0f0f0;color:#1a1a2e}
+        .section-title:first-child{margin-top:0}
+        .row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+        @media(max-width:520px){.row{grid-template-columns:1fr}}
+
+        .checkbox-group{display:flex;flex-wrap:wrap;gap:8px}
+        .checkbox-group label{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border:1px solid #e0e0e0;border-radius:10px;cursor:pointer;font-weight:400;font-size:14px;transition:all .2s}
+        .checkbox-group label:hover{border-color:#ea4157;background:#fef2f2}
+        .checkbox-group input:checked+span{color:#ea4157;font-weight:600}
+        .checkbox-group input{accent-color:#ea4157;width:16px;height:16px}
+
+        .tags-input{display:flex;flex-wrap:wrap;gap:6px;padding:10px;border:1px solid #ddd;border-radius:10px;min-height:46px;cursor:text}
+        .tags-input:focus-within{border-color:#ea4157;box-shadow:0 0 0 3px rgba(234,65,87,.1)}
+        .tags-input input{border:none;outline:none;padding:2px;font-size:14px;flex:1;min-width:120px}
+        .tag{display:inline-flex;align-items:center;background:#f0f0f0;padding:4px 12px;border-radius:16px;font-size:13px}
+        .tag-x{margin-left:6px;cursor:pointer;color:#999;font-weight:700;font-size:15px;line-height:1}
+        .tag-x:hover{color:#ea4157}
+
+        .nav-btns{display:flex;gap:12px;margin-top:24px}
+        .nav-btn{flex:1;padding:14px;border:none;border-radius:10px;font-size:15px;font-weight:700;cursor:pointer;transition:background .2s}
+        .nav-btn.next{background:#ea4157;color:#fff}
+        .nav-btn.next:hover{background:#d13649}
+        .nav-btn.prev{background:#f0f0f0;color:#666}
+        .nav-btn.prev:hover{background:#e0e0e0}
+        .nav-btn.submit{background:#27ae60;color:#fff}
+        .nav-btn.submit:hover{background:#219a52}
+        .nav-btn:disabled{opacity:.5;cursor:not-allowed}
+
+        .msg{padding:14px 18px;border-radius:10px;margin-top:16px;font-size:14px;display:none}
+        .msg.success{background:#d4edda;color:#155724;display:block}
+        .msg.error{background:#f8d7da;color:#721c24;display:block}
+        .char-count{font-weight:600}
+        .char-count.ok{color:#27ae60}
+        .char-count.short{color:#e74c3c}
+
+        /* Showcase */
+        .showcase-section{margin-bottom:40px}
+        .showcase-section h2{font-size:22px;font-weight:800;margin-bottom:8px;text-align:center}
+        .showcase-meta{font-size:13px;color:#888;text-align:center;margin-bottom:20px}
+        .showcase-filters{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:20px}
+        .showcase-filter{padding:6px 14px;border:1px solid #e0e0e0;border-radius:16px;background:#fff;font-size:13px;cursor:pointer;transition:all .2s;font-family:inherit;color:#666}
+        .showcase-filter:hover{border-color:#ea4157;color:#ea4157}
+        .showcase-filter.active{background:#ea4157;border-color:#ea4157;color:#fff}
+        .showcase-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+        @media(max-width:760px){.showcase-grid{grid-template-columns:repeat(2,1fr);gap:12px}}
+        @media(max-width:480px){.showcase-grid{grid-template-columns:1fr}}
+        .showcase-card{background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.06);transition:transform .15s,box-shadow .15s;text-decoration:none;color:inherit;display:flex;flex-direction:column}
+        .showcase-card:hover{transform:translateY(-2px);box-shadow:0 4px 16px rgba(0,0,0,.1)}
+        .showcase-card-img{width:100%;aspect-ratio:16/9;object-fit:cover;background:#f0f0f0;display:block}
+        .showcase-card-body{padding:14px 16px;display:flex;flex-direction:column;flex:1}
+        .showcase-card-name{font-weight:700;font-size:15px;margin-bottom:4px;color:#1a1a2e;line-height:1.3}
+        .showcase-card-tagline{font-size:13px;color:#666;line-height:1.5;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;flex:1}
+        .showcase-card-meta{display:flex;gap:6px;flex-wrap:wrap;margin-top:10px;font-size:11px}
+        .showcase-card-cat{background:#fef2f2;color:#ea4157;padding:2px 8px;border-radius:8px;font-weight:600}
+        .showcase-card-platform{background:#f0f0f0;color:#666;padding:2px 8px;border-radius:8px}
+        .showcase-empty{text-align:center;padding:40px 20px;color:#888;font-size:14px;background:#fff;border-radius:10px}
+
+        /* FAQ */
+        .faq-section{margin-bottom:40px}
+        .faq-section h2{font-size:22px;font-weight:800;margin-bottom:16px;text-align:center}
+        .faq-item{background:#fff;border-radius:12px;margin-bottom:10px;box-shadow:0 1px 4px rgba(0,0,0,.04);overflow:hidden}
+        .faq-q{padding:16px 20px;font-weight:600;font-size:15px;cursor:pointer;display:flex;justify-content:space-between;align-items:center}
+        .faq-q:hover{background:#fafafa}
+        .faq-a{padding:0 20px 16px;font-size:14px;color:#555;display:none;line-height:1.7}
+        .faq-item.open .faq-a{display:block}
+        .faq-arrow{transition:transform .2s;color:#999}
+        .faq-item.open .faq-arrow{transform:rotate(180deg)}
+
+        .footer{text-align:center;padding:32px 20px;color:#999;font-size:13px}
+        .footer a{color:#ea4157;text-decoration:none}
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <div class="header-inner">
+        <a href="https://www.techritual.com" class="header-logo"><img src="https://www.techritual.com/wp-content/uploads/2025/03/techritual_logo_v.webp" alt="TechRitual"></a>
+        <nav class="header-nav"><a href="https://www.techritual.com" data-i18n="nav.back">返回 TechRitual</a></nav>
+    </div>
+</div>
+
+<div class="hero">
+    <div style="display:flex;justify-content:center;gap:8px;margin-bottom:18px;flex-wrap:wrap;">
+        <button class="region-btn active" data-region="hk" onclick="setRegion('hk')" style="padding:8px 20px;border-radius:20px;border:2px solid #fff;background:transparent;color:#fff;font-size:14px;font-weight:600;cursor:pointer;transition:all .2s;">&#127469;&#127472; 香港</button>
+        <button class="region-btn" data-region="tw" onclick="setRegion('tw')" style="padding:8px 20px;border-radius:20px;border:2px solid rgba(255,255,255,.4);background:transparent;color:rgba(255,255,255,.6);font-size:14px;font-weight:600;cursor:pointer;transition:all .2s;">&#127481;&#127484; 台灣</button>
+        <button class="region-btn" data-region="en" onclick="setRegion('en')" style="padding:8px 20px;border-radius:20px;border:2px solid rgba(255,255,255,.4);background:transparent;color:rgba(255,255,255,.6);font-size:14px;font-weight:600;cursor:pointer;transition:all .2s;">&#127760; English</button>
+    </div>
+    <h1 id="hero-title" data-i18n="hero.title">將你嘅 App 推廣俾更多香港用戶</h1>
+    <p id="hero-desc" data-i18n="hero.desc">專為香港開發者而設 — 無論你嘅 App、網站或工具係面向本地定全球市場，TechRitual 編輯團隊都會為你撰寫一篇專業嘅產品介紹文章，發佈到 TechRitual.com，幫你觸及更多香港科技讀者。</p>
+</div>
+
+<div class="wrap">
+
+    <!-- Value Props -->
+    <div class="value-section">
+        <div class="value-grid">
+            <div class="value-card">
+                <div class="value-icon">&#9997;&#65039;</div>
+                <div class="value-title" data-i18n="value.editorial.title">編輯撰寫</div>
+                <div class="value-desc" data-i18n="value.editorial.desc">TechRitual 編輯團隊根據你提供嘅資料撰寫專業介紹文章</div>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">&#128200;</div>
+                <div class="value-title" data-i18n="value.reach.title">觸及讀者</div>
+                <div class="value-desc" id="value-readers" data-i18n="value.reach.desc">文章發佈到 TechRitual.com，觸及每月數十萬香港科技讀者</div>
+            </div>
+            <div class="value-card">
+                <div class="value-icon">&#128279;</div>
+                <div class="value-title" data-i18n="value.permanent.title">永久收錄</div>
+                <div class="value-desc" data-i18n="value.permanent.desc">文章永久保留，附有你嘅產品網站連結，持續帶來自然流量</div>
+            </div>
+        </div>
+
+        <div class="notice" data-i18n="notice">
+            編輯團隊會審閱每一份投稿，保留刊登與否嘅最終決定權。我哋會優先處理資料完整、產品定位清晰嘅投稿。
+        </div>
+
+    </div>
+
+    <!-- Sample Articles -->
+    <div class="sample-box">
+        <div style="flex:1;min-width:0">
+            <div class="sample-label" data-i18n="sample.label">已刊登範例</div>
+            <div class="sample-title" data-i18n="sample.title">香港小一 PrimaryHK：從一個爸爸的選校煩惱到覆蓋全港 584 間學校的平台</div>
+        </div>
+        <a class="sample-btn" href="https://www.techritual.com/2026/05/10/524914/" target="_blank" rel="noopener" data-i18n="sample.btn">睇文章</a>
+    </div>
+    <div class="sample-box">
+        <div style="flex:1;min-width:0">
+            <div class="sample-label" data-i18n="sample.label2">已刊登範例</div>
+            <div class="sample-title" data-i18n="sample.title2">從電影收藏的熱情出發 — Movfolio 的獨特紀錄體驗</div>
+        </div>
+        <a class="sample-btn" href="https://www.techritual.com/2026/05/10/525348/" target="_blank" rel="noopener" data-i18n="sample.btn">睇文章</a>
+    </div>
+
+    <!-- Mode Toggle -->
+    <div class="mode-tabs" id="mode-tabs">
+        <button type="button" class="mode-tab active" data-mode="manual" onclick="setMode('manual')" data-i18n="mode.tab.manual">&#9997;&#65039; 自己填寫</button>
+        <button type="button" class="mode-tab" data-mode="ai_assisted" onclick="setMode('ai_assisted')" data-i18n="mode.tab.ai">&#129302; AI 協助填寫</button>
+    </div>
+    <div class="mode-hint" id="mode-hint" data-i18n="mode.hint.manual">逐項填寫產品資料；題目較多但編輯團隊嘅文章質素亦最高。</div>
+
+    <!-- Progress Bar -->
+    <div class="progress" id="progress">
+        <div class="progress-step active" data-step="1">1</div>
+        <div class="progress-line"></div>
+        <div class="progress-step" data-step="2">2</div>
+        <div class="progress-line"></div>
+        <div class="progress-step" data-step="3">3</div>
+        <div class="progress-line"></div>
+        <div class="progress-step" data-step="4">4</div>
+    </div>
+    <div class="step-label" id="step-label">第 1 步：基本資料</div>
+
+    <!-- Form -->
+    <div class="form-card" id="form">
+
+        <!-- Step 1: 基本資料 -->
+        <div class="step active" id="step-1">
+            <div class="section-title" style="margin-top:0" data-i18n="step1.title">基本資料</div>
+
+            <div class="field">
+                <label for="productName" data-i18n="step1.productName">產品名稱 <span class="req">*</span></label>
+                <input type="text" id="productName" data-i18n-ph="step1.productName.ph" placeholder="例如：PostHog、Notion、Cursor、GoodNotes">
+            </div>
+            <div class="field">
+                <label for="tagline" data-i18n="step1.tagline">標語 <span class="req">*</span></label>
+                <input type="text" id="tagline" data-i18n-ph="step1.tagline.ph" placeholder="例如：「開源產品分析平台」、「AI 驅動嘅代碼編輯器」、「5 秒完成自動編更」">
+                <div class="hint" data-i18n="step1.tagline.hint">精煉嘅一句話，讓人一睇就知你嘅產品做咩</div>
+            </div>
+            <div class="row">
+                <div class="field">
+                    <label for="websiteUrl" data-i18n="step1.websiteUrl">網站網址 <span class="req">*</span></label>
+                    <input type="url" id="websiteUrl" placeholder="https://yourapp.com">
+                </div>
+                <div class="field">
+                    <label for="launchYear" data-i18n="step1.launchYear">上線年份</label>
+                    <input type="number" id="launchYear" value="2026" min="2020" max="2030">
+                </div>
+            </div>
+            <div class="row">
+                <div class="field">
+                    <label for="category" data-i18n="step1.category">分類 <span class="req">*</span></label>
+                    <select id="category">
+                        <option value="ai-tool" data-i18n="cat.ai-tool">AI 工具</option>
+                        <option value="productivity" data-i18n="cat.productivity">生產力工具</option>
+                        <option value="developer" data-i18n="cat.developer">開發者工具</option>
+                        <option value="mobile-app" data-i18n="cat.mobile-app">手機 App</option>
+                        <option value="web-app" data-i18n="cat.web-app">網頁應用</option>
+                        <option value="saas" data-i18n="cat.saas">SaaS 服務</option>
+                        <option value="browser-ext" data-i18n="cat.browser-ext">瀏覽器擴充</option>
+                        <option value="others" data-i18n="cat.others">其他</option>
+                    </select>
+                </div>
+                <div class="field">
+                    <label for="pricingModel" data-i18n="step1.pricingModel">定價模式 <span class="req">*</span></label>
+                    <select id="pricingModel">
+                        <option value="free" data-i18n="price.free">免費</option>
+                        <option value="freemium" data-i18n="price.freemium">免費增值（Freemium）</option>
+                        <option value="paid" data-i18n="price.paid">付費</option>
+                        <option value="open-source" data-i18n="price.open-source">開源</option>
+                    </select>
+                </div>
+            </div>
+            <div class="field">
+                <label for="pricingDetail" data-i18n="step1.pricingDetail">定價詳情</label>
+                <input type="text" id="pricingDetail" data-i18n-ph="step1.pricingDetail.ph" placeholder="例如：「Free 無限用 / Pro US$9/月 / Team US$29/月」、「開源免費，企業版另議」">
+                <div class="hint" data-i18n="step1.pricingDetail.hint">列出各方案同價錢，幫編輯寫出準確嘅定價比較</div>
+            </div>
+            <div class="field">
+                <label data-i18n="step1.platforms">支援平台 <span class="req">*</span></label>
+                <div class="checkbox-group" id="platforms">
+                    <label><input type="checkbox" value="Web"><span>Web</span></label>
+                    <label><input type="checkbox" value="iOS"><span>iOS</span></label>
+                    <label><input type="checkbox" value="Android"><span>Android</span></label>
+                    <label><input type="checkbox" value="macOS"><span>macOS</span></label>
+                    <label><input type="checkbox" value="Windows"><span>Windows</span></label>
+                    <label><input type="checkbox" value="Linux"><span>Linux</span></label>
+                    <label><input type="checkbox" value="Chrome Extension"><span>Chrome Extension</span></label>
+                    <label><input type="checkbox" value="VS Code"><span>VS Code</span></label>
+                    <label><input type="checkbox" value="API"><span>API</span></label>
+                </div>
+            </div>
+            <div class="field">
+                <label data-i18n="step1.targetUsers">目標用戶</label>
+                <div class="checkbox-group" id="targetUsers">
+                    <label><input type="checkbox" value="developers"><span data-i18n="users.developers">開發者</span></label>
+                    <label><input type="checkbox" value="designers"><span data-i18n="users.designers">設計師</span></label>
+                    <label><input type="checkbox" value="creators"><span data-i18n="users.creators">內容創作者</span></label>
+                    <label><input type="checkbox" value="business"><span data-i18n="users.business">企業用戶</span></label>
+                    <label><input type="checkbox" value="general"><span data-i18n="users.general">一般用戶</span></label>
+                    <label><input type="checkbox" value="students"><span data-i18n="users.students">學生</span></label>
+                </div>
+            </div>
+            <div class="field">
+                <label data-i18n="step1.tags">標籤</label>
+                <div class="tags-input" id="tags-container"><input type="text" id="tags-input" data-i18n-ph="step1.tags.ph" placeholder="輸入後按 Enter（例如：vibe-coding、no-code）"></div>
+                <div class="hint" data-i18n="step1.tags.hint">最多 5 個標籤</div>
+            </div>
+
+            <div class="nav-btns"><button class="nav-btn next" onclick="goStep(2)" data-i18n="step1.next">下一步：產品介紹</button></div>
+        </div>
+
+        <!-- Step 2: 產品介紹 -->
+        <div class="step" id="step-2">
+            <div class="section-title" style="margin-top:0" data-i18n="step2.title">產品介紹</div>
+            <p style="font-size:13px;color:#888;margin-bottom:16px" data-i18n="step2.intro">你提供嘅資料越詳細，文章質素越高。以下每個欄位都會直接影響最終文章內容。</p>
+
+            <div class="field">
+                <label for="description" data-i18n="step2.description">產品描述 <span class="req">*</span></label>
+                <textarea id="description" data-min="500" data-i18n-ph="step2.description.ph" placeholder=""></textarea>
+                <div class="hint"><span data-i18n="step2.description.hint">至少 500 字，建議寫 1000-2000 字 — 涵蓋：做咩 / 解決咩問題 / 主要功能 / 適合邊啲人</span> | <span class="char-count" data-for="description">0/500</span></div>
+            </div>
+            <div class="field">
+                <label for="competitors" data-i18n="step2.competitors">主要競品 / 替代品 <span class="req">*</span></label>
+                <input type="text" id="competitors" data-i18n-ph="step2.competitors.ph" placeholder="">
+                <div class="hint" data-i18n="step2.competitors.hint">列出 2-3 個讀者可能已經知道嘅同類產品，編輯會喺文章加入比較分析</div>
+            </div>
+            <div class="field">
+                <label for="uniqueSelling" data-i18n="step2.uniqueSelling">你同競品最大嘅分別係？ <span class="req">*</span></label>
+                <textarea id="uniqueSelling" data-min="100" style="min-height:80px" data-i18n-ph="step2.uniqueSelling.ph" placeholder=""></textarea>
+                <div class="hint"><span data-i18n="step2.uniqueSelling.hint">至少 100 字 — 呢段係全篇文章最重要嘅賣點</span> | <span class="char-count" data-for="uniqueSelling">0/100</span></div>
+            </div>
+            <div class="field">
+                <label for="gettingStarted" data-i18n="step2.gettingStarted">上手步驟 <span class="req">*</span></label>
+                <textarea id="gettingStarted" data-min="100" style="min-height:80px" data-i18n-ph="step2.gettingStarted.ph" placeholder=""></textarea>
+                <div class="hint"><span data-i18n="step2.gettingStarted.hint">至少 100 字 — 列出 3-5 個步驟，由簡單到進階</span> | <span class="char-count" data-for="gettingStarted">0/100</span></div>
+            </div>
+            <div class="field">
+                <label for="otherInfo" data-i18n="step2.otherInfo">更多補充</label>
+                <textarea id="otherInfo" style="min-height:120px" data-i18n-ph="step2.otherInfo.ph" placeholder=""></textarea>
+                <div class="hint" data-i18n="step2.otherInfo.hint">選填 — 冇字數限制</div>
+            </div>
+            <div class="field">
+                <label for="traction" data-i18n="step2.traction">用戶數據 / Traction</label>
+                <input type="text" id="traction" data-i18n-ph="step2.traction.ph" placeholder="">
+                <div class="hint" data-i18n="step2.traction.hint">任何數字都有幫助 — 用戶數、下載量、處理量、評分等</div>
+            </div>
+
+            <div class="nav-btns">
+                <button class="nav-btn prev" onclick="goStep(1)" data-i18n="btn.prev">上一步</button>
+                <button class="nav-btn next" onclick="goStep(3)" data-i18n="step2.next">下一步：連結 + 圖片</button>
+            </div>
+        </div>
+
+        <!-- Step 3: 連結 + 圖片 + 故事 -->
+        <div class="step" id="step-3">
+            <div class="section-title" style="margin-top:0" data-i18n="step3.storeLinks">商店連結（選填）</div>
+            <div class="field"><label for="iosUrl">iOS App Store</label><input type="url" id="iosUrl" placeholder="https://apps.apple.com/app/..."></div>
+            <div class="field"><label for="androidUrl">Google Play Store</label><input type="url" id="androidUrl" placeholder="https://play.google.com/store/apps/details?id=..."></div>
+            <div class="row">
+                <div class="field"><label for="macUrl">Mac App Store</label><input type="url" id="macUrl" placeholder="https://apps.apple.com/app/..."></div>
+                <div class="field"><label for="windowsUrl">Microsoft Store</label><input type="url" id="windowsUrl" placeholder="https://apps.microsoft.com/..."></div>
+            </div>
+            <div class="field"><label for="chromeExtUrl">Chrome Web Store</label><input type="url" id="chromeExtUrl" placeholder="https://chromewebstore.google.com/detail/..."></div>
+
+            <div class="section-title" data-i18n="step3.images">圖片（選填，越多越好）</div>
+            <p style="font-size:13px;color:#888;margin-bottom:16px" data-i18n="step3.images.intro">提供產品截圖同圖片連結，編輯會直接放入文章。圖片越多，文章越豐富專業。建議提供 App 主介面、核心功能頁面、數據 dashboard 等截圖。</p>
+            <div class="field"><label for="appIconUrl" data-i18n="step3.appIconUrl">App Icon / Logo 圖片網址</label><input type="url" id="appIconUrl" placeholder="https://yourapp.com/icon.png"></div>
+            <div class="field">
+                <label for="screenshotUrls" data-i18n="step3.screenshotUrls">產品截圖網址（每行一個）</label>
+                <textarea id="screenshotUrls" style="min-height:100px" placeholder="https://yourapp.com/screenshot1.png&#10;https://yourapp.com/screenshot2.png&#10;https://yourapp.com/screenshot3.png"></textarea>
+                <div class="hint" data-i18n="step3.screenshotUrls.hint">最多 10 張，支援 PNG / JPG / WebP</div>
+            </div>
+            <div class="field"><label for="developerPhotoUrl" data-i18n="step3.developerPhotoUrl">開發者 / 團隊照片網址</label><input type="url" id="developerPhotoUrl" placeholder="https://yoursite.com/team-photo.jpg"></div>
+
+            <div class="section-title" data-i18n="step3.story">開發者故事（選填）</div>
+            <div class="field">
+                <label for="launchComment" data-i18n="step3.launchComment">想同讀者講嘅話</label>
+                <textarea id="launchComment" style="min-height:80px" data-i18n-ph="step3.launchComment.ph" placeholder=""></textarea>
+            </div>
+
+            <div class="section-title" data-i18n="step3.media">媒體（選填）</div>
+            <div class="field"><label for="videoUrl" data-i18n="step3.videoUrl">影片 / Demo 連結</label><input type="url" id="videoUrl" placeholder="https://youtube.com/... or https://loom.com/..."></div>
+
+            <div class="nav-btns">
+                <button class="nav-btn prev" onclick="goStep(2)" data-i18n="btn.prev">上一步</button>
+                <button class="nav-btn next" onclick="goStep(4)" data-i18n="step3.next">下一步：提交</button>
+            </div>
+        </div>
+
+        <!-- Step AI: AI 協助填寫 — single product step -->
+        <div class="step" id="step-ai">
+            <div class="section-title" style="margin-top:0" data-i18n="ai.section.title">AI 協助填寫 — 產品資料</div>
+            <div class="ai-instructions" data-i18n="ai.instructions">
+                把下面嘅問題清單按「<strong>&#128203; 複製問題</strong>」貼去 <strong>ChatGPT / Claude / Gemini</strong>，連同你嘅 App 資料一齊問 AI，再將 AI 整合好嘅完整答案貼返落底下嘅文字框。<br>編輯團隊會根據答案撰寫文章。
+            </div>
+
+            <div class="field">
+                <label data-i18n="ai.step1.label">步驟 1：複製問題清單</label>
+                <div class="ai-questions-panel" id="ai-questions" data-i18n-text="ai.questions"></div>
+                <button type="button" class="ai-copy-btn" id="ai-copy-btn" onclick="copyAIQuestions()"><span data-i18n="ai.copy">&#128203; 複製問題</span></button>
+            </div>
+
+            <div class="field">
+                <label for="aiConsolidatedAnswer" data-i18n="ai.step2.label">步驟 2：貼返 AI 嘅完整答案 <span class="req">*</span></label>
+                <textarea id="aiConsolidatedAnswer" data-min="1000" style="min-height:300px" data-i18n-ph="ai.answer.ph" placeholder=""></textarea>
+                <div class="hint"><span data-i18n="ai.answer.hint">至少 1000 字，越詳細越好</span> | <span class="char-count" data-for="aiConsolidatedAnswer">0/1000</span></div>
+            </div>
+
+            <div class="nav-btns"><button class="nav-btn next" onclick="goStep(2)" data-i18n="ai.next">下一步：開發者資料</button></div>
+        </div>
+
+        <!-- Step 4: 開發者資料 + 提交 -->
+        <div class="step" id="step-4">
+            <div class="section-title" style="margin-top:0" data-i18n="step4.title">開發者 / 公司資料</div>
+            <div class="field">
+                <label for="developerName" data-i18n="step4.developerName">開發者 / 公司名稱 <span class="req">*</span></label>
+                <input type="text" id="developerName" data-i18n-ph="step4.developerName.ph" placeholder="例如：Jane Chan、ACME Studio、Pixel Forge Limited">
+                <div class="hint" data-i18n="step4.developerName.hint">會喺文章內 credit，請用想公開嘅名稱</div>
+            </div>
+            <div class="field">
+                <label for="contactName" data-i18n="step4.contactName">聯絡人姓名 <span class="req">*</span></label>
+                <input type="text" id="contactName" data-i18n-ph="step4.contactName.ph" placeholder="編輯回覆時稱呼用">
+            </div>
+            <div class="field">
+                <label for="email" data-i18n="step4.email">電郵地址 <span class="req">*</span></label>
+                <input type="email" id="email" placeholder="your@email.com">
+                <div class="hint" data-i18n="step4.email.hint">文章發佈後會通知你</div>
+            </div>
+            <div class="field">
+                <label for="contactPhone" data-i18n="step4.contactPhone">聯絡電話</label>
+                <input type="tel" id="contactPhone" placeholder="+852 9123 4567">
+                <div class="hint" data-i18n="step4.contactPhone.hint">選填 — 純內部 follow-up，唔會出文</div>
+            </div>
+            <div class="field">
+                <label data-i18n="step4.developerType">開發者類型</label>
+                <div class="checkbox-group" id="developerType-group">
+                    <label class="checkbox-item"><input type="radio" name="developerType" value="個人"><span data-i18n="step4.developerType.individual">個人開發者</span></label>
+                    <label class="checkbox-item"><input type="radio" name="developerType" value="工作室"><span data-i18n="step4.developerType.studio">工作室 / 小團隊</span></label>
+                    <label class="checkbox-item"><input type="radio" name="developerType" value="公司"><span data-i18n="step4.developerType.company">公司 / Startup</span></label>
+                </div>
+                <div class="hint" data-i18n="step4.developerType.hint">選填</div>
+            </div>
+
+            <div class="nav-btns">
+                <button class="nav-btn prev" onclick="goStep(3)" data-i18n="btn.prev">上一步</button>
+                <button class="nav-btn submit" id="submit-btn" onclick="submitProduct()" data-i18n="step4.submit">提交產品</button>
+            </div>
+        </div>
+        <div class="msg" id="msg"></div>
+    </div>
+
+    <!-- Newsletter Subscribe -->
+    <div style="background:linear-gradient(135deg,#1a1a2e 0%,#16213e 100%);border-radius:16px;padding:32px;margin-bottom:32px;text-align:center;color:#fff;">
+        <div style="font-size:20px;font-weight:800;margin-bottom:8px;" data-i18n="nl.title">訂閱 TechRitual Newsletter</div>
+        <div style="font-size:14px;color:#b0b0c8;margin-bottom:20px;max-width:400px;margin-left:auto;margin-right:auto;" data-i18n="nl.desc">每星期精選科技新聞、App 推薦同行業趨勢，直送你嘅收件箱。</div>
+        <div style="display:flex;gap:10px;max-width:420px;margin:0 auto;">
+            <input type="email" id="nl-email" data-i18n-ph="nl.email.ph" placeholder="你嘅電郵地址" style="flex:1;padding:12px 16px;border:none;border-radius:10px;font-size:15px;outline:none;">
+            <button onclick="subscribeNL()" id="nl-btn" data-i18n="nl.btn" style="background:#ea4157;color:#fff;border:none;padding:12px 24px;border-radius:10px;font-size:15px;font-weight:700;cursor:pointer;white-space:nowrap;">訂閱</button>
+        </div>
+        <div id="nl-msg" style="margin-top:12px;font-size:13px;display:none;"></div>
+    </div>
+
+    <!-- Showcase: Published Products -->
+    <div class="showcase-section" id="showcase-section">
+        <h2 data-i18n="showcase.title">已刊登嘅產品</h2>
+        <div class="showcase-meta" id="showcase-meta" data-i18n="showcase.loading">載入中…</div>
+        <div class="showcase-filters" id="showcase-filters"></div>
+        <div class="showcase-grid" id="showcase-grid"></div>
+    </div>
+
+    <!-- FAQ -->
+    <div class="faq-section">
+        <h2 data-i18n="faq.title">常見問題</h2>
+        <div class="faq-item">
+            <div class="faq-q" onclick="this.parentElement.classList.toggle('open')"><span data-i18n="faq.q1">提交係免費嘅嗎？</span><span class="faq-arrow">&#9660;</span></div>
+            <div class="faq-a" data-i18n="faq.a1">係，完全免費。你只需要提供產品資料，我哋嘅編輯團隊會負責撰寫文章。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q" onclick="this.parentElement.classList.toggle('open')"><span data-i18n="faq.q2">提交後幾耐會收到回覆？</span><span class="faq-arrow">&#9660;</span></div>
+            <div class="faq-a" data-i18n="faq.a2">一般 3-7 個工作天內，視乎投稿數量。文章發佈後會即時以電郵通知你。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q" onclick="this.parentElement.classList.toggle('open')"><span data-i18n="faq.q3">每個投稿都會被刊登嗎？</span><span class="faq-arrow">&#9660;</span></div>
+            <div class="faq-a" data-i18n="faq.a3">唔一定。編輯團隊會審閱每份投稿，保留刊登與否嘅最終決定權。資料越完整、產品定位越清晰，獲刊登嘅機會越高。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q" onclick="this.parentElement.classList.toggle('open')"><span data-i18n="faq.q4">文章發佈後我可以修改嗎？</span><span class="faq-arrow">&#9660;</span></div>
+            <div class="faq-a" data-i18n="faq.a4">可以。如果你發現有需要更正嘅地方，回覆通知郵件即可，我哋會盡快處理。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q" onclick="this.parentElement.classList.toggle('open')"><span data-i18n="faq.q5">接受邊啲類型嘅產品？</span><span class="faq-arrow">&#9660;</span></div>
+            <div class="faq-a" data-i18n="faq.a5">任何 App、網站、SaaS、瀏覽器擴充、開發者工具等科技產品。特別歡迎香港開發者嘅作品、使用 vibe coding 開發嘅產品、同面向香港市場嘅工具。</div>
+        </div>
+    </div>
+</div>
+
+<div class="footer">
+    <a href="https://www.techritual.com">TechRitual.com</a> <span data-i18n="footer.tagline">— 專注 Mobile | Wearable 與 AI 人工智能</span>
+</div>
+
+<script>
+var I18N = {
+    hk: {
+        'meta.title':'將你嘅 App 推廣俾更多香港用戶 — TechRitual',
+        'nav.back':'返回 TechRitual',
+        'hero.title':'將你嘅 App 推廣俾更多香港用戶',
+        'hero.desc':'專為香港開發者而設 — 無論你嘅 App、網站或工具係面向本地定全球市場，TechRitual 編輯團隊都會為你撰寫一篇專業嘅產品介紹文章，發佈到 TechRitual.com，幫你觸及更多香港科技讀者。',
+        'value.editorial.title':'編輯撰寫',
+        'value.editorial.desc':'TechRitual 編輯團隊根據你提供嘅資料撰寫專業介紹文章',
+        'value.reach.title':'觸及讀者',
+        'value.reach.desc':'文章發佈到 TechRitual.com，觸及每月數十萬香港科技讀者',
+        'value.permanent.title':'永久收錄',
+        'value.permanent.desc':'文章永久保留，附有你嘅產品網站連結，持續帶來自然流量',
+        'notice':'編輯團隊會審閱每一份投稿，保留刊登與否嘅最終決定權。我哋會優先處理資料完整、產品定位清晰嘅投稿。',
+        'sample.label':'已刊登範例',
+        'sample.title':'香港小一 PrimaryHK：從一個爸爸的選校煩惱到覆蓋全港 584 間學校的平台',
+        'sample.label2':'已刊登範例',
+        'sample.title2':'從電影收藏的熱情出發 — Movfolio 的獨特紀錄體驗',
+        'sample.btn':'睇文章',
+        'showcase.title':'已刊登嘅產品',
+        'showcase.loading':'載入中…',
+        'showcase.empty':'暫時冇已刊登產品',
+        'showcase.count':'已幫 {n} 個獨立產品出文',
+        'showcase.filter.all':'全部',
+        'showcase.read':'睇文章 →',
+        'step.label':['','第 1 步：基本資料','第 2 步：產品介紹','第 3 步：連結 + 圖片','第 4 步：開發者資料'],
+        'step1.title':'基本資料',
+        'step1.productName':'產品名稱 <span class="req">*</span>',
+        'step1.productName.ph':'例如：PostHog、Notion、Cursor、GoodNotes',
+        'step1.tagline':'標語 <span class="req">*</span>',
+        'step1.tagline.ph':'例如：「開源產品分析平台」、「AI 驅動嘅代碼編輯器」、「5 秒完成自動編更」',
+        'step1.tagline.hint':'精煉嘅一句話，讓人一睇就知你嘅產品做咩',
+        'step1.websiteUrl':'網站網址 <span class="req">*</span>',
+        'step1.launchYear':'上線年份',
+        'step1.category':'分類 <span class="req">*</span>',
+        'cat.ai-tool':'AI 工具',
+        'cat.productivity':'生產力工具',
+        'cat.developer':'開發者工具',
+        'cat.mobile-app':'手機 App',
+        'cat.web-app':'網頁應用',
+        'cat.saas':'SaaS 服務',
+        'cat.browser-ext':'瀏覽器擴充',
+        'cat.others':'其他',
+        'step1.pricingModel':'定價模式 <span class="req">*</span>',
+        'price.free':'免費',
+        'price.freemium':'免費增值（Freemium）',
+        'price.paid':'付費',
+        'price.open-source':'開源',
+        'step1.pricingDetail':'定價詳情',
+        'step1.pricingDetail.ph':'例如：「Free 無限用 / Pro US$9/月 / Team US$29/月」、「開源免費，企業版另議」',
+        'step1.pricingDetail.hint':'列出各方案同價錢，幫編輯寫出準確嘅定價比較',
+        'step1.platforms':'支援平台 <span class="req">*</span>',
+        'step1.targetUsers':'目標用戶',
+        'users.developers':'開發者',
+        'users.designers':'設計師',
+        'users.creators':'內容創作者',
+        'users.business':'企業用戶',
+        'users.general':'一般用戶',
+        'users.students':'學生',
+        'step1.tags':'標籤',
+        'step1.tags.ph':'輸入後按 Enter（例如：vibe-coding、no-code）',
+        'step1.tags.hint':'最多 5 個標籤',
+        'step1.next':'下一步：產品介紹',
+        'btn.prev':'上一步',
+        'step2.title':'產品介紹',
+        'step2.intro':'你提供嘅資料越詳細，文章質素越高。以下每個欄位都會直接影響最終文章內容。',
+        'step2.description':'產品描述 <span class="req">*</span>',
+        'step2.description.ph':'盡量詳細描述你嘅產品。以下係一個好例子：\n\n「FocusLane 係一個專為遠端工作者而設嘅深度工作計時器，整合 Pomodoro、任務追蹤同 AI 工作報告。平台解決咗 WFH 時容易分心、難以量化每日效率嘅問題。主要功能包括智能番茄鐘、Slack 同 Discord 自動 do-not-disturb、每日 AI 工作摘要、團隊協作模式、Notion 同 Linear 雙向整合，仲有專注時長排行榜畀團隊互相打氣。」\n\n寫得越詳細，編輯就越能全面介紹你嘅產品。',
+        'step2.description.hint':'至少 500 字，建議寫 1000-2000 字 — 涵蓋：做咩 / 解決咩問題 / 主要功能 / 適合邊啲人',
+        'step2.competitors':'主要競品 / 替代品 <span class="req">*</span>',
+        'step2.competitors.ph':'例如：「Notion, Obsidian, Craft」、「schooland.hk、小學概覽 chsc.hk」',
+        'step2.competitors.hint':'列出 2-3 個讀者可能已經知道嘅同類產品，編輯會喺文章加入比較分析',
+        'step2.uniqueSelling':'你同競品最大嘅分別係？ <span class="req">*</span>',
+        'step2.uniqueSelling.ph':'例如：\n「我哋係市面上唯一支援 Notion 同 Linear 雙向同步嘅 Pomodoro 工具，其他競品只做單向匯入。而且我哋嘅 AI 工作摘要可以自動將每日 commits、calendar events、Slack 訊息整合成週報，慳返用戶寫匯報嘅時間。」\n\n又例如：\n「比 Mixpanel 平 80%，而且完全開源，數據唔離開你嘅 server，特別適合對 privacy 敏感嘅 SaaS 團隊。」',
+        'step2.uniqueSelling.hint':'至少 100 字 — 呢段係全篇文章最重要嘅賣點',
+        'step2.gettingStarted':'上手步驟 <span class="req">*</span>',
+        'step2.gettingStarted.ph':'例如：\n「1. 去 yourapp.com 免費註冊，無需信用卡\n2. 用 Google 一鍵登入，連接 Calendar 同 GitHub\n3. 設定第一個專注 session（25 分鐘）\n4. 完成後查看 AI 自動生成嘅工作摘要\n5. 邀請隊友加入團隊空間\n6. 升級 Pro 解鎖 Notion 同 Linear 雙向同步」\n\n清晰嘅步驟令讀者更有信心去試用。',
+        'step2.gettingStarted.hint':'至少 100 字 — 列出 3-5 個步驟，由簡單到進階',
+        'step2.otherInfo':'更多補充',
+        'step2.otherInfo.ph':'任何你覺得重要但以上欄位冇涵蓋嘅資訊。\n\n例如：技術架構、roadmap 計劃、合作邀請、團隊背景、媒體報道等。\n冇字數限制，寫多少少都唔緊要。',
+        'step2.otherInfo.hint':'選填 — 冇字數限制',
+        'step2.traction':'用戶數據 / Traction',
+        'step2.traction.ph':'例如：「300+ 註冊用戶」、「上線 3 個月 10,000 下載」、「GitHub 5k stars」、「處理過 100 萬筆交易」',
+        'step2.traction.hint':'任何數字都有幫助 — 用戶數、下載量、處理量、評分等',
+        'step2.next':'下一步：連結 + 圖片',
+        'step3.storeLinks':'商店連結（選填）',
+        'step3.images':'圖片（選填，越多越好）',
+        'step3.images.intro':'提供產品截圖同圖片連結，編輯會直接放入文章。圖片越多，文章越豐富專業。建議提供 App 主介面、核心功能頁面、數據 dashboard 等截圖。',
+        'step3.appIconUrl':'App Icon / Logo 圖片網址',
+        'step3.screenshotUrls':'產品截圖網址（每行一個）',
+        'step3.screenshotUrls.hint':'最多 10 張，支援 PNG / JPG / WebP',
+        'step3.developerPhotoUrl':'開發者 / 團隊照片網址',
+        'step3.story':'開發者故事（選填）',
+        'step3.launchComment':'想同讀者講嘅話',
+        'step3.launchComment.ph':'例如：\n「我係一個獨立開發者，做咗 5 年遠端工作，發現市面上嘅 Pomodoro 工具都太簡單，唔夠 power user 用。於是我用咗 8 個月時間，由零開始用 vibe coding 嘅方式開發咗呢個產品。」\n\n呢段故事會令文章更有人情味。',
+        'step3.media':'媒體（選填）',
+        'step3.videoUrl':'影片 / Demo 連結',
+        'step3.next':'下一步：提交',
+        'step4.title':'開發者 / 公司資料',
+        'step4.developerName':'開發者 / 公司名稱 <span class="req">*</span>',
+        'step4.developerName.ph':'例如：Jane Chan、ACME Studio、Pixel Forge Limited',
+        'step4.developerName.hint':'會喺文章內 credit，請用想公開嘅名稱',
+        'step4.contactName':'聯絡人姓名 <span class="req">*</span>',
+        'step4.contactName.ph':'編輯回覆時稱呼用',
+        'step4.email':'電郵地址 <span class="req">*</span>',
+        'step4.email.hint':'文章發佈後會通知你',
+        'step4.contactPhone':'聯絡電話',
+        'step4.contactPhone.hint':'選填 — 純內部 follow-up，唔會出文',
+        'step4.developerType':'開發者類型',
+        'step4.developerType.individual':'個人開發者',
+        'step4.developerType.studio':'工作室 / 小團隊',
+        'step4.developerType.company':'公司 / Startup',
+        'step4.developerType.hint':'選填',
+        'step4.submit':'提交產品',
+        'btn.submitting':'提交中...',
+        'nl.title':'訂閱 TechRitual Newsletter',
+        'nl.desc':'每星期精選科技新聞、App 推薦同行業趨勢，直送你嘅收件箱。',
+        'nl.email.ph':'你嘅電郵地址',
+        'nl.btn':'訂閱',
+        'nl.btn.subscribing':'訂閱中...',
+        'nl.success':'訂閱成功！歡迎加入 TechRitual Newsletter。',
+        'nl.fail':'訂閱失敗：',
+        'nl.invalidEmail':'請填寫有效嘅電郵地址',
+        'nl.networkErr':'網絡錯誤，請稍後再試',
+        'faq.title':'常見問題',
+        'faq.q1':'提交係免費嘅嗎？',
+        'faq.a1':'係，完全免費。你只需要提供產品資料，我哋嘅編輯團隊會負責撰寫文章。',
+        'faq.q2':'提交後幾耐會收到回覆？',
+        'faq.a2':'一般 3-7 個工作天內，視乎投稿數量。文章發佈後會即時以電郵通知你。',
+        'faq.q3':'每個投稿都會被刊登嗎？',
+        'faq.a3':'唔一定。編輯團隊會審閱每份投稿，保留刊登與否嘅最終決定權。資料越完整、產品定位越清晰，獲刊登嘅機會越高。',
+        'faq.q4':'文章發佈後我可以修改嗎？',
+        'faq.a4':'可以。如果你發現有需要更正嘅地方，回覆通知郵件即可，我哋會盡快處理。',
+        'faq.q5':'接受邊啲類型嘅產品？',
+        'faq.a5':'任何 App、網站、SaaS、瀏覽器擴充、開發者工具等科技產品。特別歡迎香港開發者嘅作品、使用 vibe coding 開發嘅產品、同面向香港市場嘅工具。',
+        'footer.tagline':'— 專注 Mobile | Wearable 與 AI 人工智能',
+        'err.productName':'請填寫產品名稱',
+        'err.tagline':'請填寫產品標語（至少 5 個字）',
+        'err.websiteUrl':'請填寫以 https:// 開頭嘅網站網址',
+        'err.platforms':'請至少選擇一個支援平台',
+        'err.description':'產品描述需至少 500 個字（而家 {n} 個字）',
+        'err.competitors':'請填寫至少一個競品 / 替代品',
+        'err.uniqueSelling':'請描述你同競品嘅分別（至少 100 個字，而家 {n} 個字）',
+        'err.gettingStarted':'請描述上手步驟（至少 100 個字，而家 {n} 個字）',
+        'err.developerName':'請填寫開發者 / 公司名稱',
+        'err.contactName':'請填寫聯絡人姓名',
+        'err.email':'請填寫有效嘅電郵地址',
+        'submit.success':'提交成功！我哋嘅編輯會盡快審閱 {p}，文章發佈後會以電郵通知你。',
+        'submit.fail':'提交失敗：',
+        'submit.networkErr':'網絡錯誤，請稍後再試',
+        'submit.unknown':'未知錯誤',
+        'mode.tab.manual':'✏️ 自己填寫',
+        'mode.tab.ai':'🤖 AI 協助填寫',
+        'mode.hint.manual':'逐項填寫產品資料；題目較多但編輯團隊嘅文章質素亦最高。',
+        'mode.hint.ai':'一次過將所有產品問題交畀 ChatGPT / Claude / Gemini 答完，貼返一條完整答案；個人 / 公司資料仍要自己填寫。',
+        'step.label.ai':['','第 1 步：AI 整合答案','第 2 步：開發者資料'],
+        'ai.section.title':'AI 協助填寫 — 產品資料',
+        'ai.instructions':'把下面嘅問題清單按「<strong>📋 複製問題</strong>」貼去 <strong>ChatGPT / Claude / Gemini</strong>，連同你嘅 App 資料一齊問 AI，再將 AI 整合好嘅完整答案貼返落底下嘅文字框。<br>編輯團隊會根據答案撰寫文章。',
+        'ai.step1.label':'步驟 1：複製問題清單',
+        'ai.copy':'📋 複製問題',
+        'ai.copied':'✅ 已複製',
+        'ai.step2.label':'步驟 2：貼返 AI 嘅完整答案 <span class="req">*</span>',
+        'ai.answer.ph':'將 AI 提供嘅完整答案（包含所有 26 條問題嘅內容 + Q27 自由發揮）貼喺呢度。\n\n貼士：可以連同 AI 嘅題號一齊貼，編輯睇返會更清晰。',
+        'ai.answer.hint':'至少 1000 字，越詳細越好',
+        'ai.next':'下一步：開發者資料',
+        'err.aiAnswer':'請貼返 AI 嘅完整答案（至少 1000 個字，而家 {n} 個字）',
+        'err.aiTagged':'請喺答案頂用「PRODUCT_NAME / TAGLINE / WEBSITE」三個標籤格式回答頭 3 條',
+        'err.imageFormat':'{label}：「{url}」唔係有效嘅圖片連結。只支援 .jpg / .jpeg / .png / .webp 格式。',
+        'err.imageTooMany':'產品截圖最多 10 張，而家有 {n} 張。',
+        'ai.questions':'請幫我準備以下 App / 產品介紹資料。我會將你嘅完整答案貼到 TechRitual 投稿表單，由編輯團隊撰寫文章。\n\n⚠️ 重要：頭 3 行請務必嚴格按以下標籤格式（方便編輯系統解析），其餘問題自由作答：\n\nPRODUCT_NAME: [產品名稱]\nTAGLINE: [一句話標語，5-15 字]\nWEBSITE: [https://...]\n\n接住自由回答 Q4-Q27（請逐題清晰標題；如不適用請寫「不適用」）：\n\n⚠️ AI 重要規則：\n• 絕對唔可以作數字 / 編造 stat / 編造 testimonial。如果 developer 冇講某項，直接寫「不適用」 — 編輯團隊寧願見到 N/A 都唔好假數據\n• 每個答案結尾標 confidence：[H]=developer 直接講過、[M]=你由 website / 公開資料推斷、[L]=你估嘅。例：「Q15: 上線 3 個月 1800+ downloads [H]，70% 香港用戶 [M]」。編輯會優先用 [H]，可能刪走 [L]\n\n【基本資料】\nQ4. 上線年份（2020-2030）\nQ5. 產品分類（揀一個：AI 工具 / 生產力 / 開發者 / 手機 App / 網頁應用 / SaaS / 瀏覽器擴充 / 其他）\nQ6. 定價模式（揀一個：免費 / Freemium / 付費 / 開源）\nQ7. 定價詳情（例：Free 無限用 / Pro US$9 月）\nQ8. 支援平台（可多選：Web、iOS、Android、macOS、Windows、Linux、Chrome Extension、VS Code、API）\nQ9. 目標用戶（可多選：開發者、設計師、內容創作者、企業用戶、一般用戶、學生）\nQ10. 標籤（最多 5 個關鍵詞，例：vibe-coding、no-code）\n\n【產品介紹】\nQ11. 產品描述（至少 500 字，建議 1000-2000 字）— 涵蓋：做咩 / 解決咩問題 / 主要功能 / 適合邊啲人\nQ12. 主要競品 / 替代品（2-3 個讀者可能熟悉嘅同類產品）\nQ13. 你同競品最大嘅分別係？（至少 100 字，全篇文章最重要嘅賣點）\nQ14. 上手步驟（至少 100 字，列 3-5 個步驟由淺入深）\nQ15. 用戶數據 / Traction — 唔淨係列數字，每個指標附 (a) 時間 / 日期、(b) 增長率（如有）、(c) 地理分佈（如適用）、(d) 至少 1 個 milestone date（上線日、PMF 達成、第一個付費用戶等）。例：「上線 2025-12，3 個月內 1800+ downloads（月增 25%），70% 香港 / 30% 台灣」\nQ16. 更多補充 — 請逐項答以下 explicit subsections（每項冇就寫「不適用」）：\n  16a. 媒體報道 / 外部 mention：press article / podcast / 訪問 URL list\n  16b. 用戶 testimonial：至少 1 條 quote + 姓名 + role / 公司（例：「真係慳咗我成日時間」— Jane Chan, PM @ ACME）\n  16c. Roadmap：未來 3-6 個月會 ship 咩 feature\n  16d. 技術棧（如係 dev tool / SaaS）：主要 framework / language / infra\n  16e. Integrations：具體 list「Works with X, Y, Z」\n  16f. 獎項 / accelerator / 投資：YC batch、新創獎、media awards 等\n  16g. Open-source repo URL（如有）\n\n【連結 + 圖片】\n⚠️ 圖片網址（Q22-Q24）重要規則：每個 URL 必須係（a）公開可存取（任何人喺 incognito browser 直接打開都見到原圖，唔需要登入 / share permission / sign-in）；（b）直接 image file URL，可以放入 HTML `<img src="...">` 直接顯示（即係 URL 結尾係 .jpg / .jpeg / .png / .webp，非 viewer / preview page）。⛔ 唔可以用 Google Drive `/view?usp=sharing` URL、Dropbox preview link、Notion attachment link 呢類 viewer URL — 編輯系統會 fail 加圖。如果你嘅圖片只喺 Drive / Dropbox / Notion，請先 export 並 host 喺 GitHub / Imgur / Cloudinary / 你嘅產品 CDN，再貼公開 image URL。提交前請喺 incognito 試開每條 URL 確認直接 render 到圖片。\nQ17. iOS App Store 連結\nQ18. Google Play Store 連結\nQ19. Mac App Store 連結\nQ20. Microsoft Store 連結\nQ21. Chrome Web Store 連結\nQ22. App Icon / Logo 圖片網址（須符合公開直連規則；建議方形 512×512+ PNG）\nQ23. 產品截圖網址 — 每行一個 URL，URL 後加一句 caption 說明顯示緊邊個功能。格式：「URL — caption」。例：「https://yourapp.com/dashboard.png — 主 Dashboard 顯示用戶 analytics」。最少 3 張：(a) 主介面 / Dashboard、(b) 核心功能 in action、(c) Mobile + desktop view 如適用。最多 10 張，至少 1200px 闊。⛔ 唔好用 device mockup frame、watermark、generic stock photo（編輯會自己加 device frame）\nQ24. 開發者 / 團隊照片網址（須符合公開直連規則）\nQ25. 影片 / Demo 連結 — 30-90 秒 product demo 最理想（超過 2 分鐘 article 用唔晒）。Alternative：5-15 秒 hero GIF / screen recording 直連（用 GIF 嘅話要符合 Q22-Q24 公開直連規則）。有 captions / subtitles 加分。可以用 YouTube / Loom share URL（唔需要 direct file）\n\n【開發者故事】\nQ26. 想同讀者講嘅話 — 開發背景、初衷、團隊故事（會令文章更有人情味）\n\n【自由發揮 ⭐ 最重要】\nQ27. 邊啲特點、故事、技術亮點、用戶 testimonial、有趣角度，令你嘅產品最吸引？呢部分唔限於以上問題範圍 — 越詳細、越多角度，文章嘅深度同吸引力就越高。\n\n請逐題作答，內容越詳盡越好。整體答案至少 1000 字。'
+    },
+    tw: {
+        'meta.title':'將你的 App 推廣給更多台灣使用者 — TechRitual',
+        'nav.back':'返回 TechRitual',
+        'hero.title':'將你的 App 推廣給更多台灣使用者',
+        'hero.desc':'專為台灣開發者打造 — 不論你的 App、網站或工具是面向台灣還是全球市場，TechRitual 編輯團隊都會為你撰寫一篇專業的產品介紹文章，發佈到 TechRitual.com，幫你觸及更多台灣與香港的科技讀者。',
+        'value.editorial.title':'編輯撰寫',
+        'value.editorial.desc':'TechRitual 編輯團隊根據你提供的資料撰寫專業介紹文章',
+        'value.reach.title':'觸及讀者',
+        'value.reach.desc':'文章發佈到 TechRitual.com，觸及每月數十萬台灣與香港科技讀者',
+        'value.permanent.title':'永久收錄',
+        'value.permanent.desc':'文章永久保留，附有你的產品網站連結，持續帶來自然流量',
+        'notice':'編輯團隊會審閱每一份投稿，保留刊登與否的最終決定權。我們會優先處理資料完整、產品定位清晰的投稿。',
+        'sample.label':'已刊登範例',
+        'sample.title':'香港小一 PrimaryHK：從一個爸爸的選校煩惱到覆蓋全港 584 間學校的平台',
+        'sample.label2':'已刊登範例',
+        'sample.title2':'從電影收藏的熱情出發 — Movfolio 的獨特紀錄體驗',
+        'sample.btn':'看文章',
+        'showcase.title':'已刊登的產品',
+        'showcase.loading':'載入中…',
+        'showcase.empty':'目前沒有已刊登產品',
+        'showcase.count':'已幫 {n} 個獨立產品出文',
+        'showcase.filter.all':'全部',
+        'showcase.read':'看文章 →',
+        'step.label':['','第 1 步：基本資料','第 2 步：產品介紹','第 3 步：連結 + 圖片','第 4 步：開發者資料'],
+        'step1.title':'基本資料',
+        'step1.productName':'產品名稱 <span class="req">*</span>',
+        'step1.productName.ph':'例如：PostHog、Notion、Cursor、GoodNotes',
+        'step1.tagline':'標語 <span class="req">*</span>',
+        'step1.tagline.ph':'例如：「開源產品分析平台」、「AI 驅動的程式碼編輯器」、「5 秒完成自動編輯」',
+        'step1.tagline.hint':'精煉的一句話，讓人一看就知道你的產品在做什麼',
+        'step1.websiteUrl':'網站網址 <span class="req">*</span>',
+        'step1.launchYear':'上線年份',
+        'step1.category':'分類 <span class="req">*</span>',
+        'cat.ai-tool':'AI 工具',
+        'cat.productivity':'生產力工具',
+        'cat.developer':'開發者工具',
+        'cat.mobile-app':'手機 App',
+        'cat.web-app':'網頁應用',
+        'cat.saas':'SaaS 服務',
+        'cat.browser-ext':'瀏覽器擴充',
+        'cat.others':'其他',
+        'step1.pricingModel':'定價模式 <span class="req">*</span>',
+        'price.free':'免費',
+        'price.freemium':'免費增值（Freemium）',
+        'price.paid':'付費',
+        'price.open-source':'開源',
+        'step1.pricingDetail':'定價詳情',
+        'step1.pricingDetail.ph':'例如：「免費版無限使用 / Pro NT$270/月 / Team NT$870/月」、「開源免費，企業版另議」',
+        'step1.pricingDetail.hint':'列出各方案與價格，幫編輯寫出準確的定價比較',
+        'step1.platforms':'支援平台 <span class="req">*</span>',
+        'step1.targetUsers':'目標使用者',
+        'users.developers':'開發者',
+        'users.designers':'設計師',
+        'users.creators':'內容創作者',
+        'users.business':'企業使用者',
+        'users.general':'一般使用者',
+        'users.students':'學生',
+        'step1.tags':'標籤',
+        'step1.tags.ph':'輸入後按 Enter（例如：vibe-coding、no-code）',
+        'step1.tags.hint':'最多 5 個標籤',
+        'step1.next':'下一步：產品介紹',
+        'btn.prev':'上一步',
+        'step2.title':'產品介紹',
+        'step2.intro':'你提供的資料越詳細，文章品質越高。以下每個欄位都會直接影響最終文章內容。',
+        'step2.description':'產品描述 <span class="req">*</span>',
+        'step2.description.ph':'請詳細描述你的產品。以下是一個好範例：\n\n「WaCare 是一個專為台灣長照需求設計的遠距健康諮詢平台，整合超過 300 位醫療專業人員。平台解決了偏鄉居民就醫不便的問題，主要功能包括視訊諮詢、用藥提醒、健康數據追蹤、AI 症狀初步評估、家屬共享照護紀錄等。」\n\n寫得越詳細，編輯就越能完整介紹你的產品。',
+        'step2.description.hint':'至少 500 字，建議寫 1000-2000 字 — 涵蓋：做什麼 / 解決什麼問題 / 主要功能 / 適合哪些人',
+        'step2.competitors':'主要競品 / 替代品 <span class="req">*</span>',
+        'step2.competitors.ph':'例如：「LINE Healthcare、Doctor On Demand」、「巧連智、均一教育平台」',
+        'step2.competitors.hint':'列出 2-3 個讀者可能已經知道的同類產品，編輯會在文章加入比較分析',
+        'step2.uniqueSelling':'你和競品最大的差別是？ <span class="req">*</span>',
+        'step2.uniqueSelling.ph':'例如：\n「我們是台灣唯一整合長照與遠距醫療的平台，其他競品只提供單一功能。而且我們的 AI 症狀評估準確率達 92%，遠超同業水準。」\n\n又例如：\n「比 Notion 更適合中文使用者，內建繁體中文 AI 寫作助手。」',
+        'step2.uniqueSelling.hint':'至少 100 字 — 這段是全篇文章最重要的賣點',
+        'step2.gettingStarted':'上手步驟 <span class="req">*</span>',
+        'step2.gettingStarted.ph':'例如：\n「1. 到官網 yourapp.tw 免費註冊\n2. 用 Google 或 LINE 帳號一鍵登入\n3. 完成基本設定（約 2 分鐘）\n4. 開始使用核心功能」\n\n清楚的步驟讓讀者更有信心去試用。',
+        'step2.gettingStarted.hint':'至少 100 字 — 列出 3-5 個步驟，由簡單到進階',
+        'step2.otherInfo':'更多補充',
+        'step2.otherInfo.ph':'任何你覺得重要但以上欄位沒涵蓋的資訊。\n\n例如：技術架構、roadmap 計劃、合作邀請、團隊背景、媒體報導等。\n沒有字數限制，寫多寫少都沒關係。',
+        'step2.otherInfo.hint':'選填 — 沒有字數限制',
+        'step2.traction':'使用者數據 / Traction',
+        'step2.traction.ph':'例如：「5,000+ 註冊使用者」、「App Store 4.8 星評價」、「累計服務 10 萬次諮詢」',
+        'step2.traction.hint':'任何數字都有幫助 — 使用者數、下載量、處理量、評分等',
+        'step2.next':'下一步：連結 + 圖片',
+        'step3.storeLinks':'商店連結（選填）',
+        'step3.images':'圖片（選填，越多越好）',
+        'step3.images.intro':'提供產品截圖與圖片連結，編輯會直接放入文章。圖片越多，文章越豐富專業。建議提供 App 主介面、核心功能頁面、數據 dashboard 等截圖。',
+        'step3.appIconUrl':'App Icon / Logo 圖片網址',
+        'step3.screenshotUrls':'產品截圖網址（每行一個）',
+        'step3.screenshotUrls.hint':'最多 10 張，支援 PNG / JPG / WebP',
+        'step3.developerPhotoUrl':'開發者 / 團隊照片網址',
+        'step3.story':'開發者故事（選填）',
+        'step3.launchComment':'想對讀者說的話',
+        'step3.launchComment.ph':'例如：\n「我是一個台灣工程師，在照顧家中長輩的過程中，發現偏鄉的醫療資源非常不足。於是我用了一年的時間，從零開始開發了這個平台。」\n\n這段故事會讓文章更有溫度。',
+        'step3.media':'媒體（選填）',
+        'step3.videoUrl':'影片 / Demo 連結',
+        'step3.next':'下一步：提交',
+        'step4.title':'開發者 / 公司資料',
+        'step4.developerName':'開發者 / 公司名稱 <span class="req">*</span>',
+        'step4.developerName.ph':'例如：Jane Chan、ACME Studio、Pixel Forge Limited',
+        'step4.developerName.hint':'會在文章內 credit，請用想公開的名稱',
+        'step4.contactName':'聯絡人姓名 <span class="req">*</span>',
+        'step4.contactName.ph':'編輯回覆時稱呼用',
+        'step4.email':'電子郵件 <span class="req">*</span>',
+        'step4.email.hint':'文章發佈後會通知你',
+        'step4.contactPhone':'聯絡電話',
+        'step4.contactPhone.hint':'選填 — 純內部 follow-up，不會出文',
+        'step4.developerType':'開發者類型',
+        'step4.developerType.individual':'個人開發者',
+        'step4.developerType.studio':'工作室 / 小團隊',
+        'step4.developerType.company':'公司 / Startup',
+        'step4.developerType.hint':'選填',
+        'step4.submit':'提交產品',
+        'btn.submitting':'提交中...',
+        'nl.title':'訂閱 TechRitual Newsletter',
+        'nl.desc':'每星期精選科技新聞、App 推薦與行業趨勢，直送你的收件匣。',
+        'nl.email.ph':'你的電子郵件',
+        'nl.btn':'訂閱',
+        'nl.btn.subscribing':'訂閱中...',
+        'nl.success':'訂閱成功！歡迎加入 TechRitual Newsletter。',
+        'nl.fail':'訂閱失敗：',
+        'nl.invalidEmail':'請填寫有效的電子郵件',
+        'nl.networkErr':'網路錯誤，請稍後再試',
+        'faq.title':'常見問題',
+        'faq.q1':'提交是免費的嗎？',
+        'faq.a1':'是，完全免費。你只需要提供產品資料，我們的編輯團隊會負責撰寫文章。',
+        'faq.q2':'提交後多久會收到回覆？',
+        'faq.a2':'一般 3-7 個工作天內，視乎投稿數量。文章發佈後會立即以電子郵件通知你。',
+        'faq.q3':'每個投稿都會被刊登嗎？',
+        'faq.a3':'不一定。編輯團隊會審閱每份投稿，保留刊登與否的最終決定權。資料越完整、產品定位越清晰，獲刊登的機會越高。',
+        'faq.q4':'文章發佈後我可以修改嗎？',
+        'faq.a4':'可以。如果你發現有需要更正的地方，回覆通知郵件即可，我們會盡快處理。',
+        'faq.q5':'接受哪些類型的產品？',
+        'faq.a5':'任何 App、網站、SaaS、瀏覽器擴充、開發者工具等科技產品。特別歡迎台灣與香港開發者的作品、使用 vibe coding 開發的產品。',
+        'footer.tagline':'— 專注 Mobile | Wearable 與 AI 人工智能',
+        'err.productName':'請填寫產品名稱',
+        'err.tagline':'請填寫產品標語（至少 5 個字）',
+        'err.websiteUrl':'請填寫以 https:// 開頭的網站網址',
+        'err.platforms':'請至少選擇一個支援平台',
+        'err.description':'產品描述需至少 500 個字（目前 {n} 個字）',
+        'err.competitors':'請填寫至少一個競品 / 替代品',
+        'err.uniqueSelling':'請描述你和競品的差別（至少 100 個字，目前 {n} 個字）',
+        'err.gettingStarted':'請描述上手步驟（至少 100 個字，目前 {n} 個字）',
+        'err.developerName':'請填寫開發者 / 公司名稱',
+        'err.contactName':'請填寫聯絡人姓名',
+        'err.email':'請填寫有效的電子郵件',
+        'submit.success':'提交成功！我們的編輯會盡快審閱 {p}，文章發佈後會以電子郵件通知你。',
+        'submit.fail':'提交失敗：',
+        'submit.networkErr':'網路錯誤，請稍後再試',
+        'submit.unknown':'未知錯誤',
+        'mode.tab.manual':'✏️ 自己填寫',
+        'mode.tab.ai':'🤖 AI 協助填寫',
+        'mode.hint.manual':'逐項填寫產品資料；題目較多但編輯團隊的文章品質亦最高。',
+        'mode.hint.ai':'一次將所有產品問題交給 ChatGPT / Claude / Gemini 答完，貼回一條完整答案；個人 / 公司資料仍需自己填寫。',
+        'step.label.ai':['','第 1 步：AI 整合答案','第 2 步：開發者資料'],
+        'ai.section.title':'AI 協助填寫 — 產品資料',
+        'ai.instructions':'把下面的問題清單按「<strong>📋 複製問題</strong>」貼去 <strong>ChatGPT / Claude / Gemini</strong>，連同你的 App 資料一起問 AI，再將 AI 整合好的完整答案貼回下方的文字框。<br>編輯團隊會根據答案撰寫文章。',
+        'ai.step1.label':'步驟 1：複製問題清單',
+        'ai.copy':'📋 複製問題',
+        'ai.copied':'✅ 已複製',
+        'ai.step2.label':'步驟 2：貼回 AI 的完整答案 <span class="req">*</span>',
+        'ai.answer.ph':'將 AI 提供的完整答案（包含所有 26 條問題的內容 + Q27 自由發揮）貼在這裡。\n\n小提示：可以連同 AI 的題號一起貼，編輯看會更清晰。',
+        'ai.answer.hint':'至少 1000 字，越詳細越好',
+        'ai.next':'下一步：開發者資料',
+        'err.aiAnswer':'請貼回 AI 的完整答案（至少 1000 個字，目前 {n} 個字）',
+        'err.aiTagged':'請在答案頂部用「PRODUCT_NAME / TAGLINE / WEBSITE」三個標籤格式回答頭 3 條',
+        'err.imageFormat':'{label}：「{url}」不是有效的圖片連結。只支援 .jpg / .jpeg / .png / .webp 格式。',
+        'err.imageTooMany':'產品截圖最多 10 張，目前有 {n} 張。',
+        'ai.questions':'請幫我準備以下 App / 產品介紹資料。我會將你的完整答案貼到 TechRitual 投稿表單，由編輯團隊撰寫文章。\n\n⚠️ 重要：頭 3 行請務必嚴格按以下標籤格式（方便編輯系統解析），其餘問題自由作答：\n\nPRODUCT_NAME: [產品名稱]\nTAGLINE: [一句話標語，5-15 字]\nWEBSITE: [https://...]\n\n接著自由回答 Q4-Q27（請逐題清晰標題；如不適用請寫「不適用」）：\n\n⚠️ AI 重要規則：\n• 絕對不可編造數字 / stat / testimonial。若 developer 沒提供某項，直接寫「不適用」 — 編輯團隊寧可看到 N/A 也不要假數據\n• 每個答案結尾標 confidence：[H]=developer 直接提到、[M]=由 website / 公開資料推斷、[L]=猜測。例：「Q15: 上線 3 個月 1800+ downloads [H]，70% 香港使用者 [M]」。編輯會優先用 [H]，可能刪除 [L]\n\n【基本資料】\nQ4. 上線年份（2020-2030）\nQ5. 產品分類（選一個：AI 工具 / 生產力 / 開發者 / 手機 App / 網頁應用 / SaaS / 瀏覽器擴充 / 其他）\nQ6. 定價模式（選一個：免費 / Freemium / 付費 / 開源）\nQ7. 定價詳情（例：免費無限用 / Pro NT$270 / 月）\nQ8. 支援平台（可多選：Web、iOS、Android、macOS、Windows、Linux、Chrome Extension、VS Code、API）\nQ9. 目標使用者（可多選：開發者、設計師、內容創作者、企業使用者、一般使用者、學生）\nQ10. 標籤（最多 5 個關鍵詞，例：vibe-coding、no-code）\n\n【產品介紹】\nQ11. 產品描述（至少 500 字，建議 1000-2000 字）— 涵蓋：做什麼 / 解決什麼問題 / 主要功能 / 適合哪些人\nQ12. 主要競品 / 替代品（2-3 個讀者可能熟悉的同類產品）\nQ13. 你和競品最大的差別是？（至少 100 字，全篇文章最重要的賣點）\nQ14. 上手步驟（至少 100 字，列 3-5 個步驟由淺入深）\nQ15. 使用者數據 / Traction — 不只列數字，每個指標附 (a) 時間 / 日期、(b) 增長率（如有）、(c) 地理分佈（如適用）、(d) 至少 1 個 milestone date（上線日、PMF 達成、第一個付費使用者等）。例：「上線 2025-12，3 個月內 1800+ downloads（月增 25%），70% 台灣 / 30% 香港」\nQ16. 更多補充 — 請逐項答以下 explicit subsections（每項沒有就寫「不適用」）：\n  16a. 媒體報導 / 外部 mention：press article / podcast / 訪問 URL list\n  16b. 使用者 testimonial：至少 1 條 quote + 姓名 + role / 公司（例：「真的省下我整天時間」— Jane Chan, PM @ ACME）\n  16c. Roadmap：未來 3-6 個月會 ship 哪些 feature\n  16d. 技術棧（如為 dev tool / SaaS）：主要 framework / language / infra\n  16e. Integrations：具體列「Works with X, Y, Z」\n  16f. 獎項 / accelerator / 投資：YC batch、新創獎、media awards 等\n  16g. Open-source repo URL（如有）\n\n【連結 + 圖片】\n⚠️ 圖片網址（Q22-Q24）重要規則：每個 URL 必須是（a）公開可存取（任何人在 incognito browser 直接打開都能看到原圖，不需登入 / share permission / sign-in）；（b）直接 image file URL，可以放入 HTML `<img src="...">` 直接顯示（即 URL 結尾為 .jpg / .jpeg / .png / .webp，非 viewer / preview page）。⛔ 不可使用 Google Drive `/view?usp=sharing` URL、Dropbox preview link、Notion attachment link 這類 viewer URL — 編輯系統會無法載入圖片。如果你的圖片只在 Drive / Dropbox / Notion，請先 export 並 host 在 GitHub / Imgur / Cloudinary / 你的產品 CDN，再貼公開 image URL。提交前請在 incognito 試開每個 URL 確認直接 render 出圖片。\nQ17. iOS App Store 連結\nQ18. Google Play Store 連結\nQ19. Mac App Store 連結\nQ20. Microsoft Store 連結\nQ21. Chrome Web Store 連結\nQ22. App Icon / Logo 圖片網址（須符合公開直連規則；建議方形 512×512+ PNG）\nQ23. 產品截圖網址 — 每行一個 URL，URL 後加一句 caption 說明顯示哪個功能。格式：「URL — caption」。例：「https://yourapp.com/dashboard.png — 主 Dashboard 顯示用戶 analytics」。至少 3 張：(a) 主介面 / Dashboard、(b) 核心功能 in action、(c) Mobile + desktop view 如適用。最多 10 張，至少 1200px 寬。⛔ 不要用 device mockup frame、watermark、generic stock photo（編輯會自己加 device frame）\nQ24. 開發者 / 團隊照片網址（須符合公開直連規則）\nQ25. 影片 / Demo 連結 — 30-90 秒 product demo 最理想（超過 2 分鐘 article 用不完）。Alternative：5-15 秒 hero GIF / screen recording 直連（用 GIF 須符合 Q22-Q24 公開直連規則）。有 captions / subtitles 加分。可使用 YouTube / Loom share URL（不需 direct file）\n\n【開發者故事】\nQ26. 想對讀者說的話 — 開發背景、初衷、團隊故事（會讓文章更有溫度）\n\n【自由發揮 ⭐ 最重要】\nQ27. 哪些特點、故事、技術亮點、使用者 testimonial、有趣角度，令你的產品最吸引？這部分不限於以上問題範圍 — 越詳細、角度越多，文章的深度和吸引力就越高。\n\n請逐題作答，內容越詳盡越好。整體答案至少 1000 字。'
+    },
+    en: {
+        'meta.title':'Promote your App with TechRitual',
+        'nav.back':'Back to TechRitual',
+        'hero.title':'Promote your App to readers across Hong Kong, Taiwan & beyond',
+        'hero.desc':'Built for indie developers and startup founders — submit your App, SaaS, or tool, and the TechRitual editorial team will write a professional product article published on TechRitual.com, reaching tech readers across Hong Kong, Taiwan, and the wider region.',
+        'value.editorial.title':'Editorial Writing',
+        'value.editorial.desc':'Our editorial team writes a professional article based on the details you provide',
+        'value.reach.title':'Reach Readers',
+        'value.reach.desc':'Published on TechRitual.com, reaching hundreds of thousands of monthly tech readers across HK, TW & globally',
+        'value.permanent.title':'Permanent Indexing',
+        'value.permanent.desc':'Your article stays live forever with a backlink to your product, driving organic traffic over time',
+        'notice':'Our editors review every submission and reserve final discretion on what to publish. Detailed, well-positioned submissions are prioritized.',
+        'sample.label':'Published Example',
+        'sample.title':'PrimaryHK: From one dad\'s school-search struggle to a platform covering 584 schools across Hong Kong',
+        'sample.label2':'Published Example',
+        'sample.title2':'Movfolio: A Movie Diary Born from a Designer\'s Love of Cinema',
+        'sample.btn':'Read Article',
+        'showcase.title':'Published Products',
+        'showcase.loading':'Loading…',
+        'showcase.empty':'No products published yet',
+        'showcase.count':'{n} indie products featured',
+        'showcase.filter.all':'All',
+        'showcase.read':'Read article →',
+        'step.label':['','Step 1: Basics','Step 2: Product Details','Step 3: Links & Images','Step 4: About You'],
+        'step1.title':'Basic Information',
+        'step1.productName':'Product Name <span class="req">*</span>',
+        'step1.productName.ph':'e.g. PostHog, Notion, Cursor, GoodNotes',
+        'step1.tagline':'Tagline <span class="req">*</span>',
+        'step1.tagline.ph':'e.g. "Open-source product analytics", "AI-powered code editor", "Edit videos in 5 seconds"',
+        'step1.tagline.hint':'A concise sentence so readers instantly understand what your product does',
+        'step1.websiteUrl':'Website URL <span class="req">*</span>',
+        'step1.launchYear':'Launch Year',
+        'step1.category':'Category <span class="req">*</span>',
+        'cat.ai-tool':'AI Tool',
+        'cat.productivity':'Productivity',
+        'cat.developer':'Developer Tool',
+        'cat.mobile-app':'Mobile App',
+        'cat.web-app':'Web App',
+        'cat.saas':'SaaS',
+        'cat.browser-ext':'Browser Extension',
+        'cat.others':'Other',
+        'step1.pricingModel':'Pricing Model <span class="req">*</span>',
+        'price.free':'Free',
+        'price.freemium':'Freemium',
+        'price.paid':'Paid',
+        'price.open-source':'Open Source',
+        'step1.pricingDetail':'Pricing Details',
+        'step1.pricingDetail.ph':'e.g. "Free unlimited / Pro $9/mo / Team $29/mo", "Open source, enterprise by quote"',
+        'step1.pricingDetail.hint':'List your tiers and prices so editors can write an accurate pricing comparison',
+        'step1.platforms':'Supported Platforms <span class="req">*</span>',
+        'step1.targetUsers':'Target Users',
+        'users.developers':'Developers',
+        'users.designers':'Designers',
+        'users.creators':'Content Creators',
+        'users.business':'Business Users',
+        'users.general':'General Users',
+        'users.students':'Students',
+        'step1.tags':'Tags',
+        'step1.tags.ph':'Type and press Enter (e.g. vibe-coding, no-code)',
+        'step1.tags.hint':'Up to 5 tags',
+        'step1.next':'Next: Product Details',
+        'btn.prev':'Back',
+        'step2.title':'Product Details',
+        'step2.intro':'The more detail you provide, the better the article. Each field below directly shapes the final piece.',
+        'step2.description':'Product Description <span class="req">*</span>',
+        'step2.description.ph':'Describe your product in detail. Here\'s a good example:\n\n"FocusLane is a deep-work timer built for remote workers, combining Pomodoro, task tracking and AI-generated work reports. It solves the WFH problem of getting distracted and being unable to quantify daily productivity. Core features include a smart Pomodoro timer, automatic Slack/Discord do-not-disturb, daily AI-generated work summaries, team collaboration mode, two-way Notion and Linear integration, and a focus-time leaderboard for friendly team competition."\n\nThe more detailed you are, the better the editor can introduce your product.',
+        'step2.description.hint':'Min 500 chars, ideally 1000-2000 — covering: what it does / problem solved / key features / who it\'s for',
+        'step2.competitors':'Main Competitors / Alternatives <span class="req">*</span>',
+        'step2.competitors.ph':'e.g. "Notion, Obsidian, Craft" or "Toggl, RescueTime, Clockify"',
+        'step2.competitors.hint':'List 2-3 products readers might already know — editors will include a comparison',
+        'step2.uniqueSelling':'What sets you apart from competitors? <span class="req">*</span>',
+        'step2.uniqueSelling.ph':'e.g.\n"We\'re the only Pomodoro tool with two-way Notion and Linear sync — competitors only do one-way import. Our AI work summary auto-aggregates daily commits, calendar events, and Slack messages into a weekly report, saving users from writing status updates manually."\n\nor:\n"80% cheaper than Mixpanel, fully open source, and your data never leaves your server — ideal for privacy-conscious SaaS teams."',
+        'step2.uniqueSelling.hint':'Min 100 chars — this is the most important selling point in the whole article',
+        'step2.gettingStarted':'Getting Started Steps <span class="req">*</span>',
+        'step2.gettingStarted.ph':'e.g.\n"1. Sign up free at yourapp.com — no credit card needed\n2. Sign in with Google, connect Calendar and GitHub\n3. Start your first focus session (25 minutes)\n4. View the AI-generated work summary\n5. Invite teammates to your team space\n6. Upgrade to Pro for two-way Notion / Linear sync"\n\nClear steps make readers more confident to try.',
+        'step2.gettingStarted.hint':'Min 100 chars — list 3-5 steps from simple to advanced',
+        'step2.otherInfo':'Additional Notes',
+        'step2.otherInfo.ph':'Anything important not covered above.\n\nFor example: tech stack, roadmap, partnerships welcome, team background, press coverage, etc.\nNo length limit — write as much or as little as you like.',
+        'step2.otherInfo.hint':'Optional — no length limit',
+        'step2.traction':'User Stats / Traction',
+        'step2.traction.ph':'e.g. "300+ signups", "10,000 downloads in 3 months", "GitHub 5k stars", "Processed $1M in transactions"',
+        'step2.traction.hint':'Any numbers help — users, downloads, throughput, ratings, etc.',
+        'step2.next':'Next: Links & Images',
+        'step3.storeLinks':'Store Links (optional)',
+        'step3.images':'Images (optional — the more, the better)',
+        'step3.images.intro':'Provide product screenshots and image URLs — editors will embed them directly. More images = a richer, more professional article. We recommend the main UI, core feature screens, dashboard views, etc.',
+        'step3.appIconUrl':'App Icon / Logo URL',
+        'step3.screenshotUrls':'Screenshot URLs (one per line)',
+        'step3.screenshotUrls.hint':'Up to 10, supports PNG / JPG / WebP',
+        'step3.developerPhotoUrl':'Developer / Team Photo URL',
+        'step3.story':'Developer Story (optional)',
+        'step3.launchComment':'A note to readers',
+        'step3.launchComment.ph':'e.g.\n"I\'m an indie developer with 5 years of remote work experience. I noticed every Pomodoro tool on the market was too simple for power users, so I spent 8 months vibe-coding this product from scratch."\n\nThis kind of story makes the article feel more human.',
+        'step3.media':'Media (optional)',
+        'step3.videoUrl':'Video / Demo Link',
+        'step3.next':'Next: Submit',
+        'step4.title':'About You / Your Company',
+        'step4.developerName':'Developer / Company Name <span class="req">*</span>',
+        'step4.developerName.ph':'e.g. Jane Chan, ACME Studio, Pixel Forge Limited',
+        'step4.developerName.hint':'Used in the article credit — use the name you want shown publicly',
+        'step4.contactName':'Contact Person\'s Name <span class="req">*</span>',
+        'step4.contactName.ph':'How editors should address you',
+        'step4.email':'Email Address <span class="req">*</span>',
+        'step4.email.hint':'You\'ll be notified once the article is published',
+        'step4.contactPhone':'Contact Phone',
+        'step4.contactPhone.hint':'Optional — internal follow-up only, never published',
+        'step4.developerType':'Developer Type',
+        'step4.developerType.individual':'Solo / Individual',
+        'step4.developerType.studio':'Studio / Small Team',
+        'step4.developerType.company':'Company / Startup',
+        'step4.developerType.hint':'Optional',
+        'step4.submit':'Submit Product',
+        'btn.submitting':'Submitting...',
+        'nl.title':'Subscribe to TechRitual Newsletter',
+        'nl.desc':'Curated tech news, app recommendations and industry trends — straight to your inbox each week.',
+        'nl.email.ph':'Your email address',
+        'nl.btn':'Subscribe',
+        'nl.btn.subscribing':'Subscribing...',
+        'nl.success':'Subscribed! Welcome to TechRitual Newsletter.',
+        'nl.fail':'Subscription failed: ',
+        'nl.invalidEmail':'Please enter a valid email address',
+        'nl.networkErr':'Network error, please try again later',
+        'faq.title':'FAQ',
+        'faq.q1':'Is submission free?',
+        'faq.a1':'Yes, completely free. You provide the product details and our editorial team writes the article.',
+        'faq.q2':'How long until I hear back?',
+        'faq.a2':'Typically 3-7 business days, depending on submission volume. You\'ll be notified by email when the article goes live.',
+        'faq.q3':'Will every submission be published?',
+        'faq.a3':'Not always. Our editors review each submission and reserve final publishing discretion. Submissions that are detailed and well-positioned have the best chance.',
+        'faq.q4':'Can I edit the article after publication?',
+        'faq.a4':'Yes. If you spot something to correct, just reply to the notification email and we\'ll handle it promptly.',
+        'faq.q5':'What kinds of products do you accept?',
+        'faq.a5':'Any tech product — Apps, websites, SaaS, browser extensions, developer tools, and so on. We especially welcome work from indie developers across HK / TW and products built with vibe coding.',
+        'footer.tagline':'— Mobile | Wearable | AI',
+        'err.productName':'Please enter a product name',
+        'err.tagline':'Please enter a tagline (at least 5 characters)',
+        'err.websiteUrl':'Please enter a website URL starting with https://',
+        'err.platforms':'Please select at least one supported platform',
+        'err.description':'Product description needs at least 500 characters (currently {n})',
+        'err.competitors':'Please enter at least one competitor / alternative',
+        'err.uniqueSelling':'Please describe what sets you apart (min 100 chars, currently {n})',
+        'err.gettingStarted':'Please describe getting-started steps (min 100 chars, currently {n})',
+        'err.developerName':'Please enter the developer / company name',
+        'err.contactName':'Please enter the contact person\'s name',
+        'err.email':'Please enter a valid email address',
+        'submit.success':'Submitted! Our editors will review {p} as soon as possible — you\'ll be notified by email when the article is published.',
+        'submit.fail':'Submission failed: ',
+        'submit.networkErr':'Network error, please try again later',
+        'submit.unknown':'Unknown error',
+        'mode.tab.manual':'✏️ Fill in manually',
+        'mode.tab.ai':'🤖 AI-assisted',
+        'mode.hint.manual':'Fill in each field one by one — more questions to answer, but it produces the highest-quality article from our editors.',
+        'mode.hint.ai':'Hand the whole question list to ChatGPT / Claude / Gemini, then paste back the consolidated answer. Personal / company info still has to be entered by you.',
+        'step.label.ai':['','Step 1: AI-Consolidated Answer','Step 2: About You'],
+        'ai.section.title':'AI-Assisted Mode — Product Info',
+        'ai.instructions':'Click <strong>📋 Copy Questions</strong> below, paste the list into <strong>ChatGPT / Claude / Gemini</strong> along with information about your App, then paste the AI\'s consolidated answer into the textarea at the bottom.<br>Our editors will write the article based on that answer.',
+        'ai.step1.label':'Step 1: Copy the question list',
+        'ai.copy':'📋 Copy Questions',
+        'ai.copied':'✅ Copied',
+        'ai.step2.label':'Step 2: Paste the AI\'s consolidated answer <span class="req">*</span>',
+        'ai.answer.ph':'Paste the AI\'s complete answer (covering all 26 structured questions + Q27 free-form) here.\n\nTip: keep the AI\'s question numbers in the answer — it makes review easier for editors.',
+        'ai.answer.hint':'Min 1000 characters — the more detail, the better',
+        'ai.next':'Next: About You',
+        'err.aiAnswer':'Please paste the AI\'s complete answer (min 1000 characters, currently {n})',
+        'err.aiTagged':'Please answer the first 3 questions at the top of the answer using the PRODUCT_NAME / TAGLINE / WEBSITE tagged format',
+        'err.imageFormat':'{label}: "{url}" is not a valid image URL. Only .jpg / .jpeg / .png / .webp are supported.',
+        'err.imageTooMany':'Up to 10 screenshots only. You have {n}.',
+        'ai.questions':'Please help me prepare the following App / product information. I\'ll paste your complete answer into the TechRitual submission form for the editorial team to write an article.\n\n⚠️ Important: the FIRST THREE LINES must follow this exact tagged format (so the editorial system can parse them); the rest are free-form:\n\nPRODUCT_NAME: [product name]\nTAGLINE: [one-sentence tagline, 5-15 words]\nWEBSITE: [https://...]\n\nThen answer Q4-Q27 freely (please clearly label each question; if a question doesn\'t apply, write "N/A"):\n\n⚠️ Critical AI rules:\n• Never invent numbers / stats / testimonials. If the developer didn\'t provide something, write "N/A" — editors prefer N/A over fabricated data.\n• Tag each answer with confidence: [H] = developer stated directly / [M] = inferred from website or public sources / [L] = guess. Example: "Q15: Launched 2025-12, 1800+ downloads in 3 months [H], 70% HK users [M]". Editors will prioritize [H] and may strip [L].\n\n[Basic Info]\nQ4. Launch year (2020-2030)\nQ5. Category (pick one: AI Tool / Productivity / Developer Tool / Mobile App / Web App / SaaS / Browser Extension / Other)\nQ6. Pricing model (pick one: Free / Freemium / Paid / Open Source)\nQ7. Pricing details (e.g. Free unlimited / Pro $9 per month)\nQ8. Supported platforms (multi-select: Web, iOS, Android, macOS, Windows, Linux, Chrome Extension, VS Code, API)\nQ9. Target users (multi-select: developers, designers, content creators, business users, general users, students)\nQ10. Tags (up to 5 keywords, e.g. vibe-coding, no-code)\n\n[Product Details]\nQ11. Product description (min 500 chars, ideally 1000-2000) — what it does / problem solved / key features / who it\'s for\nQ12. Main competitors / alternatives (2-3 products readers may know)\nQ13. What sets you apart from competitors? (min 100 chars — the most important selling point in the whole article)\nQ14. Getting started steps (min 100 chars — list 3-5 steps from simple to advanced)\nQ15. User stats / traction — don\'t just list numbers. Each metric should include (a) date / time period, (b) growth rate (if any), (c) geographic split (if applicable), (d) at least one milestone date (launch, PMF, first paid customer, etc.). Example: "Launched 2025-12, 1800+ downloads in 3 months (25% MoM growth), 70% HK / 30% TW".\nQ16. Additional notes — please answer each of the explicit subsections below (write "N/A" if a section doesn\'t apply):\n  16a. Press coverage / external mentions: list press article / podcast / interview URLs\n  16b. User testimonials: at least 1 quote + name + role / company (e.g. "Saved me a full day of work" — Jane Chan, PM @ ACME)\n  16c. Roadmap: features shipping in the next 3-6 months\n  16d. Tech stack (for dev tools / SaaS): main framework / language / infra\n  16e. Integrations: concrete list — "Works with X, Y, Z"\n  16f. Awards / accelerator / funding: YC batch, startup awards, media awards, etc.\n  16g. Open-source repo URL (if any)\n\n[Links & Images]\n⚠️ Image URL rules (Q22-Q24): each URL must be (a) publicly accessible (anyone opening it in an incognito browser sees the raw image — no login / share permission / sign-in required); (b) a direct image file URL that can be embedded with HTML `<img src="...">` (URL must end with .jpg / .jpeg / .png / .webp, not a viewer / preview page). ⛔ Do NOT use Google Drive `/view?usp=sharing` URLs, Dropbox preview links, Notion attachment links, or similar viewer URLs — our editorial system will fail to load them. If your images are only on Drive / Dropbox / Notion, please export and host them on GitHub / Imgur / Cloudinary / your own product CDN first, then paste the public image URL. Test each URL in an incognito window before submitting to confirm it renders the image directly.\nQ17. iOS App Store link\nQ18. Google Play Store link\nQ19. Mac App Store link\nQ20. Microsoft Store link\nQ21. Chrome Web Store link\nQ22. App icon / logo image URL (must follow public direct-link rules above; recommend square 512×512+ PNG)\nQ23. Screenshot URLs — one URL per line, each followed by a one-line caption describing what feature it shows. Format: "URL — caption". Example: "https://yourapp.com/dashboard.png — Main dashboard showing user analytics". At least 3 screenshots: (a) main UI / dashboard, (b) core feature in action, (c) Mobile + desktop view if applicable. Up to 10, minimum 1200px wide. ⛔ No device mockup frames, watermarks, or generic stock photos (editors add device frames themselves).\nQ24. Developer / team photo URL (must follow public direct-link rules above)\nQ25. Video / demo link — 30-90 second product demo is ideal (longer than 2 minutes is wasted on the article). Alternative: a 5-15 second hero GIF / screen recording as a direct link (a GIF must follow the Q22-Q24 public direct-link rules). Captions / subtitles are a plus. YouTube / Loom share URLs are fine (don\'t need direct file).\n\n[Developer Story]\nQ26. A note to readers — your background, why you built this, the team story (makes the article more human)\n\n[Open-Ended ⭐ Most Important]\nQ27. What makes your product interesting and attractive? Unique features, founder stories, technical highlights, user testimonials, surprising angles — anything you want readers to know that the questions above didn\'t cover. The more detail and angles you give, the deeper and more compelling the article will be.\n\nPlease answer every question with as much detail as possible. Total answer should be at least 1000 characters.'
+    }
+};
+
+function t(key) {
+    var dict = I18N[currentRegion] || I18N.en;
+    return dict[key] !== undefined ? dict[key] : key;
+}
+
+function applyI18n(lang) {
+    var dict = I18N[lang] || I18N.en;
+    document.documentElement.lang = lang === 'hk' ? 'zh-HK' : (lang === 'tw' ? 'zh-TW' : 'en');
+    document.querySelectorAll('[data-i18n]').forEach(function(el) {
+        var k = el.dataset.i18n;
+        if (dict[k] !== undefined) el.innerHTML = dict[k];
+    });
+    document.querySelectorAll('[data-i18n-text]').forEach(function(el) {
+        var k = el.dataset.i18nText;
+        if (dict[k] !== undefined) el.textContent = dict[k];
+    });
+    document.querySelectorAll('[data-i18n-ph]').forEach(function(el) {
+        var k = el.dataset.i18nPh;
+        if (dict[k] !== undefined) el.placeholder = dict[k];
+    });
+    if (dict['meta.title']) document.title = dict['meta.title'];
+    document.querySelectorAll('textarea[data-min]').forEach(function(ta) {
+        var min = parseInt(ta.dataset.min);
+        var counter = document.querySelector('.char-count[data-for="' + ta.id + '"]');
+        if (counter) {
+            var len = ta.value.trim().length;
+            counter.textContent = len + '/' + min;
+        }
+    });
+    var labelKey = MODE_CONFIG[currentMode] ? MODE_CONFIG[currentMode].stepLabelKey : 'step.label';
+    var labels = dict[labelKey] || I18N.en[labelKey];
+    document.getElementById('step-label').textContent = labels[currentStep] || '';
+}
+
+async function subscribeNL() {
+    var email = document.getElementById('nl-email').value.trim();
+    var btn = document.getElementById('nl-btn');
+    var msg = document.getElementById('nl-msg');
+    if (!email || email.indexOf('@') === -1) { msg.style.display='block'; msg.style.color='#f8d7da'; msg.textContent=t('nl.invalidEmail'); return; }
+    btn.disabled = true; btn.textContent = t('nl.btn.subscribing');
+    try {
+        var resp = await fetch('https://asia-east1-gmail-auto-techritual.cloudfunctions.net/subscribeNewsletter', {
+            method: 'POST', headers: {'Content-Type':'application/json'}, body: JSON.stringify({email: email})
+        });
+        var result = await resp.json();
+        msg.style.display = 'block';
+        if (resp.ok) { msg.style.color = '#d4edda'; msg.textContent = t('nl.success'); document.getElementById('nl-email').value = ''; }
+        else { msg.style.color = '#f8d7da'; msg.textContent = t('nl.fail') + (result.error || t('submit.unknown')); }
+    } catch(e) { msg.style.display='block'; msg.style.color='#f8d7da'; msg.textContent=t('nl.networkErr'); }
+    btn.disabled = false; btn.textContent = t('nl.btn');
+}
+
+var currentRegion = 'hk';
+var currentStep = 1;
+var currentMode = 'manual';
+
+// Mode configuration: which steps belong to each mode
+// `steps` is an array of DOM step ids in order. Step IDs match `step-<id>`.
+var MODE_CONFIG = {
+    manual:      { steps: ['1', '2', '3', '4'], stepLabelKey: 'step.label' },
+    ai_assisted: { steps: ['ai', '4'],          stepLabelKey: 'step.label.ai' }
+};
+
+// Auto-detect region by IP geolocation
+// HK → hk, TW → tw, anywhere else → en (default)
+(function(){
+    try {
+        fetch('https://www.cloudflare.com/cdn-cgi/trace').then(function(r){ return r.text(); }).then(function(t){
+            var m = t.match(/loc=(\w+)/);
+            var loc = m ? m[1] : '';
+            if (loc === 'TW') setRegion('tw');
+            else if (loc === 'HK') setRegion('hk');
+            else setRegion('en');
+        }).catch(function(){ setRegion('en'); });
+    } catch(e){ setRegion('en'); }
+})();
+
+function setRegion(r) {
+    currentRegion = r;
+    applyI18n(r);
+    document.querySelectorAll('.region-btn').forEach(function(btn) {
+        var isActive = btn.dataset.region === r;
+        btn.style.borderColor = isActive ? '#fff' : 'rgba(255,255,255,.4)';
+        btn.style.color = isActive ? '#fff' : 'rgba(255,255,255,.6)';
+        btn.classList.toggle('active', isActive);
+    });
+    // Mode hint text follows the selected region's i18n
+    var hintEl = document.getElementById('mode-hint');
+    if (hintEl) hintEl.innerHTML = t(currentMode === 'ai_assisted' ? 'mode.hint.ai' : 'mode.hint.manual');
+    // Re-render showcase grid in the new language (filter labels + category badges)
+    if (typeof window.__showcaseRender === 'function') window.__showcaseRender();
+}
+
+function setMode(mode) {
+    if (currentMode === mode || !MODE_CONFIG[mode]) return;
+    currentMode = mode;
+    document.querySelectorAll('.mode-tab').forEach(function(b){ b.classList.toggle('active', b.dataset.mode === mode); });
+    document.querySelectorAll('.step').forEach(function(s){ s.classList.remove('active'); });
+    currentStep = 1;
+    var firstStepId = MODE_CONFIG[mode].steps[0];
+    document.getElementById('step-' + firstStepId).classList.add('active');
+    document.getElementById('mode-hint').innerHTML = t(mode === 'ai_assisted' ? 'mode.hint.ai' : 'mode.hint.manual');
+    renderProgressDots();
+    updateProgress();
+    hideMsg();
+}
+
+function renderProgressDots() {
+    var steps = MODE_CONFIG[currentMode].steps;
+    var html = '';
+    for (var i = 0; i < steps.length; i++) {
+        if (i > 0) html += '<div class="progress-line"></div>';
+        html += '<div class="progress-step" data-step="' + (i + 1) + '">' + (i + 1) + '</div>';
+    }
+    document.getElementById('progress').innerHTML = html;
+}
+
+function goStep(n) {
+    var steps = MODE_CONFIG[currentMode].steps;
+    if (n < 1 || n > steps.length) return;
+    var fromStepId = steps[currentStep - 1];
+    var toStepId   = steps[n - 1];
+
+    if (n > currentStep) {
+        if (currentMode === 'manual') {
+            if (n === 2) {
+                var pn = gv('productName'), tl = gv('tagline'), wu = gv('websiteUrl'), pl = getChecked('platforms');
+                if (!pn || pn.length < 2) { showMsg('error', t('err.productName')); return; }
+                if (!tl || tl.length < 5) { showMsg('error', t('err.tagline')); return; }
+                if (!wu || !wu.startsWith('https')) { showMsg('error', t('err.websiteUrl')); return; }
+                if (!pl) { showMsg('error', t('err.platforms')); return; }
+            }
+            if (n === 3) {
+                var desc = gv('description'), comp = gv('competitors'), us = gv('uniqueSelling'), gs = gv('gettingStarted');
+                if (!desc || desc.length < 500) { showMsg('error', t('err.description').replace('{n}', desc.length)); return; }
+                if (!comp) { showMsg('error', t('err.competitors')); return; }
+                if (!us || us.length < 100) { showMsg('error', t('err.uniqueSelling').replace('{n}', us.length)); return; }
+                if (!gs || gs.length < 100) { showMsg('error', t('err.gettingStarted').replace('{n}', gs.length)); return; }
+            }
+            if (n === 4) {
+                // Image-URL extension validation. Empty fields are skipped (all optional).
+                // Allowed: .jpg .jpeg .png .webp (with optional ?query string).
+                var imgRe = /\.(jpe?g|png|webp)(\?.*)?$/i;
+                var checks = [
+                    { id: 'appIconUrl', value: gv('appIconUrl'), labelKey: 'step3.appIconUrl' },
+                    { id: 'developerPhotoUrl', value: gv('developerPhotoUrl'), labelKey: 'step3.developerPhotoUrl' }
+                ];
+                for (var i = 0; i < checks.length; i++) {
+                    var c = checks[i];
+                    if (c.value && !imgRe.test(c.value)) {
+                        showMsg('error', t('err.imageFormat').replace('{label}', t(c.labelKey).replace(/<[^>]+>/g, '').trim()).replace('{url}', c.value));
+                        return;
+                    }
+                }
+                var screenshots = gv('screenshotUrls').split('\n').map(function(u){return u.trim();}).filter(Boolean);
+                for (var j = 0; j < screenshots.length; j++) {
+                    if (!imgRe.test(screenshots[j])) {
+                        showMsg('error', t('err.imageFormat').replace('{label}', t('step3.screenshotUrls').replace(/<[^>]+>/g, '').trim()).replace('{url}', screenshots[j]));
+                        return;
+                    }
+                }
+                if (screenshots.length > 10) {
+                    showMsg('error', t('err.imageTooMany').replace('{n}', screenshots.length));
+                    return;
+                }
+            }
+        } else if (currentMode === 'ai_assisted') {
+            if (n === 2) {
+                var ai = gv('aiConsolidatedAnswer');
+                if (!ai || ai.length < 1000) { showMsg('error', t('err.aiAnswer').replace('{n}', ai.length)); return; }
+                if (!/^[^\S\n]*PRODUCT[_ ]?NAME\s*[:：]\s*\S/im.test(ai) || !/^[^\S\n]*WEBSITE\s*[:：]\s*https?:\/\//im.test(ai)) {
+                    showMsg('error', t('err.aiTagged')); return;
+                }
+            }
+        }
+    }
+    hideMsg();
+    document.getElementById('step-' + fromStepId).classList.remove('active');
+    document.getElementById('step-' + toStepId).classList.add('active');
+    currentStep = n;
+    updateProgress();
+    window.scrollTo({top: document.getElementById('progress').offsetTop - 20, behavior:'smooth'});
+}
+
+function updateProgress() {
+    document.querySelectorAll('.progress-step').forEach(function(el) {
+        var s = +el.dataset.step;
+        el.classList.toggle('active', s === currentStep);
+        el.classList.toggle('done', s < currentStep);
+    });
+    document.querySelectorAll('.progress-line').forEach(function(el, i) {
+        el.classList.toggle('done', i + 1 < currentStep);
+    });
+    var dict = I18N[currentRegion] || I18N.en;
+    var labelKey = MODE_CONFIG[currentMode].stepLabelKey;
+    var labels = dict[labelKey] || I18N.en[labelKey];
+    document.getElementById('step-label').textContent = labels[currentStep] || '';
+}
+
+function copyAIQuestions() {
+    var text = document.getElementById('ai-questions').textContent;
+    var btn = document.getElementById('ai-copy-btn');
+    var span = btn.querySelector('span');
+    var ok = function() {
+        btn.classList.add('copied');
+        var orig = span.textContent;
+        span.textContent = t('ai.copied');
+        setTimeout(function(){ btn.classList.remove('copied'); span.textContent = orig; }, 2000);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(text).then(ok).catch(function(){ fallbackCopy(text, ok); });
+    } else {
+        fallbackCopy(text, ok);
+    }
+}
+function fallbackCopy(text, onOk) {
+    var ta = document.createElement('textarea');
+    ta.value = text; ta.style.position = 'fixed'; ta.style.left = '-9999px';
+    document.body.appendChild(ta); ta.select();
+    try { document.execCommand('copy'); onOk(); }
+    catch(e) { showMsg('error', t('err.copyFailed') !== 'err.copyFailed' ? t('err.copyFailed') : 'Copy failed — please select the question list manually.'); }
+    document.body.removeChild(ta);
+}
+
+function gv(id) { return (document.getElementById(id)?.value||'').trim(); }
+
+var tags = [];
+(function(){
+    var c=document.getElementById('tags-container'),inp=document.getElementById('tags-input');
+    inp.addEventListener('keydown',function(e){
+        if((e.key==='Enter'||e.key===',')&&inp.value.trim()){e.preventDefault();var t=inp.value.trim().replace(/,/g,'');if(t&&tags.indexOf(t)===-1&&tags.length<5){tags.push(t);renderTags();}inp.value='';}
+        if(e.key==='Backspace'&&!inp.value&&tags.length){tags.pop();renderTags();}
+    });
+    c.addEventListener('click',function(){inp.focus();});
+    function renderTags(){c.querySelectorAll('.tag').forEach(function(el){el.remove();});tags.forEach(function(t,i){var s=document.createElement('span');s.className='tag';s.innerHTML=t+'<span class="tag-x" data-i="'+i+'">&times;</span>';c.insertBefore(s,inp);});c.querySelectorAll('.tag-x').forEach(function(b){b.addEventListener('click',function(e){e.stopPropagation();tags.splice(+b.dataset.i,1);renderTags();});});}
+})();
+
+document.querySelectorAll('textarea[data-min]').forEach(function(ta){
+    var min=parseInt(ta.dataset.min),counter=document.querySelector('.char-count[data-for="'+ta.id+'"]');
+    function update(){var len=ta.value.trim().length;if(counter){counter.textContent=len+'/'+min;counter.className='char-count '+(len>=min?'ok':'short');}}
+    ta.addEventListener('input',update);update();
+});
+
+function getChecked(id){return Array.from(document.querySelectorAll('#'+id+' input:checked')).map(function(c){return c.value;}).join(', ');}
+function showMsg(type,text){var m=document.getElementById('msg');m.className='msg '+type;m.textContent=text;m.style.display='block';m.scrollIntoView({behavior:'smooth',block:'center'});}
+function hideMsg(){var m=document.getElementById('msg');m.className='msg';m.style.display='none';}
+
+async function submitProduct(){
+    var d={};
+    if (currentMode === 'ai_assisted') {
+        var ai = gv('aiConsolidatedAnswer');
+        if (!ai || ai.length < 1000) { showMsg('error', t('err.aiAnswer').replace('{n}', ai.length)); return; }
+        d.aiConsolidatedAnswer = ai;
+        ['developerName','contactName','contactPhone','email'].forEach(function(k){ d[k] = gv(k); });
+    } else {
+        ['productName','tagline','websiteUrl','launchYear','category','pricingModel','pricingDetail','description','competitors','uniqueSelling','gettingStarted','traction','launchComment','videoUrl','iosUrl','androidUrl','macUrl','windowsUrl','chromeExtUrl','appIconUrl','screenshotUrls','developerPhotoUrl','otherInfo','developerName','contactName','contactPhone','email'].forEach(function(k){d[k]=gv(k);});
+        d.platforms=getChecked('platforms'); d.targetUsers=getChecked('targetUsers'); d.tags=tags.join(', ');
+    }
+    var devTypeEl=document.querySelector('input[name="developerType"]:checked');d.developerType=devTypeEl?devTypeEl.value:'';
+    d.contactEmail=d.email;delete d.email;d.region=currentRegion;d.mode=currentMode;
+
+    if(!d.developerName){showMsg('error',t('err.developerName'));return;}
+    if(!d.contactName){showMsg('error',t('err.contactName'));return;}
+    if(!d.contactEmail||d.contactEmail.indexOf('@')===-1){showMsg('error',t('err.email'));return;}
+
+    var btn=document.getElementById('submit-btn');var origLabel=btn.textContent;btn.disabled=true;btn.textContent=t('btn.submitting');
+    try{
+        var resp=await fetch('https://asia-east1-gmail-auto-techritual.cloudfunctions.net/submitArticle',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(d)});
+        var result=await resp.json();
+        if(resp.ok&&result.status==='success'){
+            var displayName = d.productName || (d.aiConsolidatedAnswer ? (d.aiConsolidatedAnswer.match(/^[^\S\n]*PRODUCT[_ ]?NAME\s*[:：]\s*(.+?)\s*$/im) || [,'your product'])[1] : 'your product');
+            showMsg('success', t('submit.success').replace('{p}', displayName));
+            document.querySelectorAll('#form input[type="text"],#form input[type="email"],#form input[type="url"],#form input[type="tel"],#form textarea').forEach(function(el){el.value='';});
+            document.querySelectorAll('#form input[type="checkbox"],#form input[type="radio"]').forEach(function(el){el.checked=false;});tags=[];
+        }else{showMsg('error',t('submit.fail') + (result.details?result.details.join(', '):result.error||t('submit.unknown')));}
+    }catch(e){showMsg('error',t('submit.networkErr'));}
+    btn.disabled=false;btn.textContent=t('step4.submit');
+}
+
+// ============================================================
+// Showcase: published products grid (v4.23.0)
+// Pulls article_submissions where status=published from Firestore,
+// renders responsive grid with category filter.
+// ============================================================
+window.__showcaseRender = function() { /* set by module below once loaded */ };
+</script>
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+import { getFirestore, collection, query, orderBy, limit, getDocs } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+const app = initializeApp({
+    apiKey: "AIzaSyCagw5GsoRL4mtkIshRkmuQ54xrykrmXXw",
+    authDomain: "auto-techritual.firebaseapp.com",
+    projectId: "gmail-auto-techritual"
+});
+const db = getFirestore(app);
+
+const showcaseEl   = document.getElementById('showcase-section');
+const metaEl       = document.getElementById('showcase-meta');
+const filtersEl    = document.getElementById('showcase-filters');
+const gridEl       = document.getElementById('showcase-grid');
+
+let allItems = [];
+let currentCat = 'all';
+
+const escHtml = (s) => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+function tt(key, fallback) {
+    const dict = (typeof I18N !== 'undefined' ? I18N[currentRegion] : null) || (typeof I18N !== 'undefined' ? I18N.en : null) || {};
+    return dict[key] !== undefined ? dict[key] : (fallback != null ? fallback : key);
+}
+
+function renderShowcase() {
+    if (!gridEl) return;
+    const filtered = currentCat === 'all'
+        ? allItems
+        : allItems.filter(s => s.category === currentCat);
+
+    if (filtered.length === 0) {
+        gridEl.innerHTML = `<div class="showcase-empty" style="grid-column:1/-1">${escHtml(tt('showcase.empty', 'No products yet'))}</div>`;
+        return;
+    }
+
+    gridEl.innerHTML = filtered.map(s => {
+        const img = s.featuredImageGcsUrl || s.appIconUrl || s.websiteMeta?.ogImage || '';
+        const catLabel = tt('cat.' + s.category, s.category);
+        const platforms = (s.platforms || '').split(',').map(p => p.trim()).filter(Boolean).slice(0, 2);
+        const platformBadges = platforms.map(p => `<span class="showcase-card-platform">${escHtml(p)}</span>`).join('');
+        return `
+            <a class="showcase-card" href="${escHtml(s.wordpressPostUrl)}" target="_blank" rel="noopener">
+                ${img ? `<img class="showcase-card-img" src="${escHtml(img)}" alt="${escHtml(s.productName)}" loading="lazy" onerror="this.style.display='none'">` : `<div class="showcase-card-img"></div>`}
+                <div class="showcase-card-body">
+                    <div class="showcase-card-name">${escHtml(s.productName)}</div>
+                    <div class="showcase-card-tagline">${escHtml(s.tagline)}</div>
+                    <div class="showcase-card-meta">
+                        <span class="showcase-card-cat">${escHtml(catLabel)}</span>
+                        ${platformBadges}
+                    </div>
+                </div>
+            </a>
+        `;
+    }).join('');
+}
+
+function renderFilters() {
+    if (!filtersEl) return;
+    const cats = [...new Set(allItems.map(s => s.category).filter(Boolean))];
+    filtersEl.innerHTML = [`<button class="showcase-filter ${currentCat === 'all' ? 'active' : ''}" data-cat="all">${escHtml(tt('showcase.filter.all', 'All'))}</button>`]
+        .concat(cats.map(c => `<button class="showcase-filter ${currentCat === c ? 'active' : ''}" data-cat="${escHtml(c)}">${escHtml(tt('cat.' + c, c))}</button>`))
+        .join('');
+    filtersEl.querySelectorAll('.showcase-filter').forEach(btn => {
+        btn.addEventListener('click', () => {
+            currentCat = btn.dataset.cat;
+            renderFilters();
+            renderShowcase();
+        });
+    });
+}
+
+window.__showcaseRender = function() {
+    if (!allItems.length) return;
+    metaEl.textContent = tt('showcase.count', '{n} products featured').replace('{n}', allItems.length);
+    renderFilters();
+    renderShowcase();
+};
+
+(async () => {
+    try {
+        const snap = await getDocs(query(
+            collection(db, 'article_submissions'),
+            orderBy('publishedAt', 'desc'),
+            limit(50)
+        ));
+        allItems = snap.docs
+            .map(d => ({ id: d.id, ...d.data() }))
+            .filter(s => s.status === 'published' && s.wordpressPostUrl);
+        if (allItems.length === 0) {
+            metaEl.style.display = 'none';
+            gridEl.innerHTML = `<div class="showcase-empty" style="grid-column:1/-1">${escHtml(tt('showcase.empty', 'No products yet'))}</div>`;
+            return;
+        }
+        window.__showcaseRender();
+    } catch (e) {
+        console.warn('showcase load failed:', e.message);
+        showcaseEl.style.display = 'none';
+    }
+})();
+</script>
+</body>
+</html>
