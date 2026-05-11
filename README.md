@@ -1,6 +1,17 @@
 # startup-techritual
 
-Static catalogue site for **startups.techritual.com** — display all published independent app / SaaS / tool submissions from `gmail-auto-techritual` Firestore `article_submissions` collection.
+版本：v1.1.0（2026-05-11）
+
+`startups.techritual.com` — 香港・台灣獨立 App / SaaS / 工具目錄網站。內容由 `gmail-auto-techritual` Firestore `article_submissions` collection 嘅 published submission 自動產出，同時 host 投稿表單。
+
+兩個主要 page：
+
+| URL | 用途 |
+|-----|------|
+| `/` | Catalogue 目錄（由 Firestore live fetch published submissions） |
+| `/submit` | 投稿表單（v1.1.0 新增，port from hkapp form） |
+
+舊 `hkapp.techritual.com` 已 301 redirect 過嚟 `/submit`。
 
 - **Stack**: Astro 4 (static SSG) + Cloudflare Pages
 - **Data**: build-time fetch from Firestore REST (公開 read，無 auth)
@@ -98,8 +109,14 @@ git commit -m "chore(snapshot): manual refresh"
 git push
 ```
 
-## 改動 / 新功能
+## 版本歷史
+
+- **v1.1.0** (2026-05-11)：加 `/submit` page（port from `gmail-automation-cf/hkapp-form`），表單 header 加「Startups 目錄」tab，i18n 三語（hk/tw/en）齊全。`hkapp.techritual.com` 設 CF Page Rule 301 redirect 過嚟 `/submit`。同期手動 fix 2 個 legacy submission docs（InPark `featuredImageGcsUrl`、PrimaryHK `status`/`wordpressPostUrl`/`publishedAt`），詳情見 `changelog/CHANGELOG.md`
+- **v1.0.0** (2026-05-11)：初版 — Astro 4 SSG + Firestore live fetch + snapshot fallback + AdSense auto-ads + Schema.org ItemList + auto sitemap + weekly cron refresh
+
+## 未來方向（idle backlog）
 
 - 加 category 詳情頁：新增 `src/pages/[category].astro` + `getStaticPaths`
-- 改 styling：`src/layouts/Layout.astro` 入面 `<style is:global>`
 - 加 search box：純 client-side filter on existing data，加喺 `index.astro` 嘅 inline `<script>`
+- `/submit` 由 plain HTML 重寫做 Astro components（共用 Layout / 拆 wizard steps）
+- 加 RSS feed `/rss.xml`

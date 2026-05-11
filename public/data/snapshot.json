@@ -10,7 +10,7 @@
     "developerName": "InPark 易泊",
     "developerType": "公司",
     "region": "hk",
-    "featuredImageGcsUrl": "",
+    "featuredImageGcsUrl": "https://www.techritual.com/wp-content/uploads/2026/05/CleanShot-2026-05-11-at-00.02.12.jpg",
     "appIconUrl": "https://drive.google.com/file/d/1HOTdCCK5JB7thXQtFe2_5NGv4ohEHXez/view?usp=sharing",
     "ogImage": "",
     "wordpressPostUrl": "https://www.techritual.com/2026/05/11/525363/",
@@ -33,6 +33,24 @@
     "ogImage": "https://res.cloudinary.com/idemo/image/upload/bwbqexjqrvijzmvxvvoc",
     "wordpressPostUrl": "https://www.techritual.com/2026/05/10/525348/",
     "publishedAt": "2026-05-10T15:43:14.789Z",
+    "status": "published"
+  },
+  {
+    "id": "26nX0zxixEWnNVCm43EQ",
+    "productName": "香港小一 PrimaryHK",
+    "tagline": "全港 584 間小學入學資訊・面試練習・選校配對",
+    "websiteUrl": "https://primaryhk.com",
+    "category": "ai-tool",
+    "platforms": "Web, iOS, Android",
+    "targetUsers": "general",
+    "developerName": "",
+    "developerType": "",
+    "region": "hk",
+    "featuredImageGcsUrl": "https://storage.googleapis.com/gmail-auto-techritual-images/featured/techritual/f35ec2e56e0b4017.webp",
+    "appIconUrl": "https://primaryhk.com/icon-512.png",
+    "ogImage": "https://primaryhk.com/og-image.png?v=2",
+    "wordpressPostUrl": "https://www.techritual.com/2026/05/10/524914/",
+    "publishedAt": "2026-05-09T19:07:46Z",
     "status": "published"
   }
 ]
