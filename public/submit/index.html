@@ -1295,6 +1295,26 @@ async function submitProduct(){
     if(!d.contactName){showMsg('error',t('err.contactName'));return;}
     if(!d.contactEmail||d.contactEmail.indexOf('@')===-1){showMsg('error',t('err.email'));return;}
 
+    // v1.1.2 — block emoji + CJK Ext B+ rare chars (wp_posts utf8mb3 limit)
+    var INVALID_CHARS_RE = /[\u{10000}-\u{10FFFF}]/u;
+    var badFields = [];
+    var charPairs = [
+      ['產品名稱', d.productName], ['標語', d.tagline], ['描述', d.description],
+      ['獨特賣點', d.uniqueSelling], ['使用方法', d.gettingStarted], ['競品', d.competitors],
+      ['Launch comment', d.launchComment], ['更多補充', d.otherInfo], ['Traction', d.traction],
+      ['開發者名稱', d.developerName], ['聯絡人', d.contactName],
+      ['AI 整合答案', d.aiConsolidatedAnswer]
+    ];
+    for (var i = 0; i < charPairs.length; i++) {
+      if (typeof charPairs[i][1] === 'string' && INVALID_CHARS_RE.test(charPairs[i][1])) {
+        badFields.push(charPairs[i][0]);
+      }
+    }
+    if (badFields.length > 0) {
+      showMsg('error', '唔接受 emoji 或罕用漢字（CJK Ext B+，例如 𠺘𥚃）。請改用普通文字後再試。出問題嘅欄位：' + badFields.join('、'));
+      return;
+    }
+
     var btn=document.getElementById('submit-btn');var origLabel=btn.textContent;btn.disabled=true;btn.textContent=t('btn.submitting');
     try{
         var resp=await fetch('https://asia-east1-gmail-auto-techritual.cloudfunctions.net/submitArticle',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(d)});

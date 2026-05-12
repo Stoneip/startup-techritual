@@ -4,6 +4,32 @@
 
 ---
 
+## v1.1.2 - 2026-05-12 (/submit 表單 reject emoji + CJK Ext B+ 罕字)
+
+### Why
+
+techritual.com WordPress `wp_posts` table 係 `utf8mb3`，存唔到 4-byte UTF-8 字符
+（emoji 😀📱 / Ext B+ 罕字 𠺘𥚃 等）。投稿時若含呢類字符 → 後端 WP REST API
+返「無法將文章資料插入至資料庫」500，用戶 confused。
+
+### Changed
+
+- `public/submit/index.html` `submitProduct()` 加 client-side regex 檢查 12 個
+  text field（產品名稱 / 標語 / 描述 / 獨特賣點 / 使用方法 / 競品 / Launch
+  comment / 更多補充 / Traction / 開發者名稱 / 聯絡人 / AI 整合答案）
+- Regex：`/[\u{10000}-\u{10FFFF}]/u`
+- 觸發時：showMsg('error', '唔接受 emoji 或罕用漢字 ...')，列出有問題嘅欄位，
+  唔向後端 submit
+
+### Notes
+
+- 純 client-side validation。Backend `submitArticle` CF 同時有 server-side
+  safety net（gmail-automation-cf v4.32.0）— 即使有人 bypass JS 都 reject
+- 唔影響 emoji-free 投稿
+- BMP 範圍嘅繁體中文（U+4E00–U+9FFF，~25K 常用漢字）100% 保留
+
+---
+
 ## v1.1.1 - 2026-05-12 (移除 /submit page Google AdSense)
 
 ### Removed
