@@ -10,6 +10,7 @@
 |-----|------|
 | `/` | Catalogue 目錄（由 Firestore live fetch published submissions） |
 | `/submit` | 投稿表單（v1.1.0 新增，port from hkapp form） |
+| https://nicklaunches.com/ |  |
 
 舊 `hkapp.techritual.com` 已 301 redirect 過嚟 `/submit`。
 
