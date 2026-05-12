@@ -4,6 +4,51 @@
 
 ---
 
+## v1.2.0 - 2026-05-12 (/submit 圖片 URL 加 viewer-URL blocklist — 真正擋 Dropbox / Drive / Notion)
+
+### Why
+
+User report：表單仲收到 Dropbox 連結例如：
+
+```
+https://www.dropbox.com/scl/fi/ldrtn6xhs6vrfwlrzk4uo/ev-boy-logo-blue.png?rlkey=...&dl=0
+```
+
+舊 regex `var imgRe = /\.(jpe?g|png|webp)(\?.*)?$/i;`（`public/submit/index.html:1175`）只睇 path 末段有冇 `.png/.jpg/.webp` + optional `?query`。Dropbox 上述 URL 真係喺 path 入面有 `.png`，後面 `?rlkey=...&dl=0` 又啱 query string pattern — 所以**通過** regex。
+
+但 `?dl=0`（Dropbox default）返 **HTML preview page**，唔係 raw image bytes。Editor / image generator fetch 嗰陣攞到 HTML，brand featured image fail。i18n 文字明明寫住 ⛔ 唔可以用 viewer URL，但 client 冇真正 enforce。
+
+### Changed
+
+- `public/submit/index.html:1170-1220` — 換 image-URL validation block：
+  - 新 helper `detectViewerUrl(url)`：用 `URL` constructor parse hostname，回傳 platform name string（`"Dropbox"` / `"Google Drive"` / `"Notion"` / `"OneDrive"`）或 `null`
+    - **Dropbox**：`www.dropbox.com` / `dropbox.com` → 必須 `?dl=1` 或 `?raw=1`，否則 reject
+    - **Google Drive**：`drive.google.com` / `docs.google.com` → 一律 reject（無 raw image URL pattern）
+    - **Notion**：`notion.so` / `*.notion.so` / `*.notion.site` → reject
+    - **OneDrive**：`1drv.ms` / `onedrive.live.com` → reject
+  - 新 helper `validateImgUrl(value, labelKey)`：先 call `detectViewerUrl`，命中就用 `err.imageViewer` 顯示「呢個係 X 嘅 viewer 連結」+ 教用 `?dl=1` 或 host 喺 Imgur / GitHub / Cloudinary。冇命中 fallback `imgRe` extension check
+  - 原本 inline 兩個 for-loop 簡化用 `validateImgUrl` helper，行為一致
+
+### Added
+
+- 3 個 i18n key（hk / tw / en）：`err.imageViewer` — `{label}：「{url}」係 {platform} 嘅 viewer 連結...`
+
+### 唔變
+
+- Backend `submitArticle` CF / Firestore schema / regex extension check
+- 已 submitted 嘅舊 submission 唔受影響
+- Step 1-2-4 validation 邏輯不變
+
+### 驗證
+
+1. Open `https://startups.techritual.com/submit/` Mode 1（自己填寫） Step 3
+2. App icon URL 試 `https://www.dropbox.com/scl/fi/xxx/foo.png?dl=0` → 應該見「Dropbox 嘅 viewer 連結」error
+3. 改為 `?dl=1` → 通過
+4. 試 `https://drive.google.com/file/d/abc/view` → 「Google Drive 嘅 viewer 連結」error
+5. 試 `https://i.imgur.com/abc.png` → 通過
+
+---
+
 ## v1.1.2 - 2026-05-12 (/submit 表單 reject emoji + CJK Ext B+ 罕字)
 
 ### Why

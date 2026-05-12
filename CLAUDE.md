@@ -1,7 +1,7 @@
 # startup-techritual
 
-版本：v1.1.0
-最後更新：2026-05-11
+版本：v1.2.0
+最後更新：2026-05-12
 
 ## 項目簡介
 
@@ -188,3 +188,4 @@ startup-techritual/
 
 - **v1.0.0**（2026-05-11 早）：初版 scaffold — Astro 4 + Firestore live fetch + snapshot fallback + AdSense + Schema.org rich results. Catalogue / 主頁。
 - **v1.1.0**（2026-05-11 下午）：加 `/submit` page（port from hkapp form），Layout header nav 由純「主站 / 免費投稿 / Startups」改為直接 link 去 `/submit`。submit form header 加「Startups 目錄」tab。同期 hkapp.techritual.com 301 redirect 過嚟 `/submit`。
+- **v1.2.0**（2026-05-12）：`/submit` Step 3 image-URL validation 加 viewer-URL blocklist — 偵測 Dropbox（`dl=0` default）/ Google Drive `/view` / Notion / OneDrive 等 viewer 連結。舊版只 regex `.png?query`，會誤收 `dropbox.com/.../file.png?dl=0`（其實返 HTML preview）。新增 `err.imageViewer` i18n key（3 lang），錯誤訊息會 name 平台 + 教用戶改 `?dl=1` 或 host 喺 Imgur / GitHub / Cloudinary。
