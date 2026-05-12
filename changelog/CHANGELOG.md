@@ -4,6 +4,23 @@
 
 ---
 
+## v1.1.1 - 2026-05-12 (移除 /submit page Google AdSense)
+
+### Removed
+
+- `public/submit/index.html` 移除 AdSense auto-ads `<script>` (line 15-16)
+
+### Why
+
+`/submit` 係 conversion-focused 表單頁，廣告會分散投稿者注意力 + 拖慢首屏。
+
+### Notes
+
+- Catalogue (`/`) 仍保留 AdSense（透過 `Layout.astro`）— 唔受影響
+- AdSense publisher account `ca-pub-3665735472523700` 仍有效，淨係呢一頁唔載 ad
+
+---
+
 ## v1.1.0 - 2026-05-11 (加 /submit page + Startups 目錄 nav tab)
 
 ### 背景
