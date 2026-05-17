@@ -4,6 +4,32 @@
 
 ---
 
+## v1.3.0 - 2026-05-17 (Snapshot refresh：5 → 11 published submissions)
+
+### Why
+User 報 `startups.techritual.com` 只有 5 篇 article，但 `/submissions` dashboard 顯示 11 個 published submission。
+
+### Root cause
+呢個 site 係 **Astro SSG**：`fetchPublishedSubmissions()` 喺 **build time** 由 Firestore REST API 攞數據（兼帶 update snapshot.json fallback）。Cloudflare Pages 只喺 `git push origin main` 嗰陣先 trigger rebuild。
+
+最後 commit `v1.2.0` 喺 2026-05-12。之後 6 個 published submission 喺 2026-05-13 ~ 2026-05-16 之間加入：
+- Picki（2026-05-13）
+- 3ook.com / Furwise / Should I Take Taxi?（2026-05-14）
+- NoSleep / TwistMeet（2026-05-16）
+
+呢 6 個冇 trigger rebuild → static dist 仍然只有 5 個。
+
+### Fix
+- `npm run snapshot` refresh `public/data/snapshot.json` (5 → 11 items)
+- Git commit + push 觸發 Cloudflare Pages auto rebuild
+
+### Long-term fix (TODO)
+依賴 manual git push 觸發 rebuild 唔 sustainable。建議：
+- GitHub Actions cron job，每日掃 Firestore 有冇新 published submission，有就 auto-push commit 觸發 rebuild
+- OR `gmail-auto-techritual` `finalPublish` Cloud Function 完成 publish 後 webhook 觸發 Cloudflare Pages Deploy Hook
+
+---
+
 ## v1.2.0 - 2026-05-12 (/submit 圖片 URL 加 viewer-URL blocklist — 真正擋 Dropbox / Drive / Notion)
 
 ### Why
