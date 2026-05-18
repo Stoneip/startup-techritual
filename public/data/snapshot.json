@@ -1,5 +1,23 @@
 [
   {
+    "id": "rtqqo0D8qixzMXbDwVhC",
+    "productName": "ToGoalAI",
+    "tagline": "AI 學習平台，備考、筆記、口試一站搞定",
+    "websiteUrl": "https://togoalai.com",
+    "category": "others",
+    "platforms": "",
+    "targetUsers": "",
+    "developerName": "Togoalai_office",
+    "developerType": "個人",
+    "region": "tw",
+    "featuredImageGcsUrl": "https://storage.googleapis.com/gmail-auto-techritual-images/featured/techritual/0a3af1cca31f95a9.webp",
+    "appIconUrl": "",
+    "ogImage": "",
+    "wordpressPostUrl": "https://www.techritual.com/2026/05/17/532793/",
+    "publishedAt": "2026-05-17T10:27:57.721Z",
+    "status": "published"
+  },
+  {
     "id": "4N7vP3IPZy48AEatqpjB",
     "productName": "TwistMeet",
     "tagline": "唔靠相，先了解再配對",
